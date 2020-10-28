@@ -47,6 +47,7 @@ INSERT INTO item (
 INSERT INTO event (
     name,
     image,
+    description,
     strength,
     energy,
     humor,
@@ -55,6 +56,7 @@ INSERT INTO event (
   ) VALUES (
     "Event 0",
     "https://via.placeholder.com/150",
+    "blablablabla",
     "0",
     "0",
     "0",
@@ -63,6 +65,7 @@ INSERT INTO event (
   ), (
     "Event 1 hard NRJ",
     "https://via.placeholder.com/150",
+    "blablablabla",
     "2",
     "10",
     "0",
@@ -71,6 +74,7 @@ INSERT INTO event (
   ), (
     "Event 2",
     "https://via.placeholder.com/150",
+    "blablablabla",
     "2",
     "2",
     "2",
@@ -79,6 +83,7 @@ INSERT INTO event (
   ), (
     "Event 3",
     "https://via.placeholder.com/150",
+    "blablablabla",
     "2",
     "3",
     "4",
@@ -87,6 +92,7 @@ INSERT INTO event (
   ), (
     "Event 4 EZ",
     "https://via.placeholder.com/150",
+    "blablablabla",
     "0",
     "0",
     "0",
@@ -95,6 +101,7 @@ INSERT INTO event (
   ), (
     "Event 5 EZ NRJ",
     "https://via.placeholder.com/150",
+    "blablablabla",
     "10",
     "0",
     "10",

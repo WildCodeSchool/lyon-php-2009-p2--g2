@@ -100,6 +100,7 @@ CREATE TABLE IF NOT EXISTS `event` (
   `event_id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(80) NULL,
   `image` VARCHAR(255) NULL,
+  `description` MEDIUMTEXT NULL,
   `strength` INT NULL,
   `energy` INT NULL,
   `humor` INT NULL,
