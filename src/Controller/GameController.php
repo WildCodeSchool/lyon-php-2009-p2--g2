@@ -12,13 +12,13 @@ namespace App\Controller;
 use App\Model\CharacterManager;
 
 /**
- * Class CharacterController
+ * Class GameController
  *
  */
-class CharacterController extends AbstractController
+class GameController extends AbstractController
 {
 
-    public function index()
+    public function createCharacter()
     {
         return $this->twig->render('Character/character.html.twig');
     }

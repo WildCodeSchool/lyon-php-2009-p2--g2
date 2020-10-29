@@ -18,6 +18,4 @@ class CharacterManager extends AbstractManager
      *
      */
     const TABLE = 'office_warriors';
-
-
 }
