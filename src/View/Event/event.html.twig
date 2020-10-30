@@ -1,0 +1,10 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Page Event!</h1>
+
+    <input type="text" value="{{ event.name }}" name="title">
+    <input type="text" value="{{ event.description }}" name="title">
+    <input type="image" name="image" alt="image_event" src="../public/assets/images/{{ event.image }}">
+    {% include 'Event/_formEvent.html.twig' %}
+{% endblock %}
