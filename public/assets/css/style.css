@@ -1,0 +1,12 @@
+.flexbox-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+#main-btn {
+    margin: 20px;
+}
+
+.btn-group-vertical>.btn {
+    margin-bottom: 15px
+}
