@@ -3,10 +3,18 @@
     justify-content: space-around;
 }
 
+#fbc1 .btn-group-vertical>.btn {
+    font-size: 25px;
+}
+
+#fbc2 .btn-group-vertical>.btn {
+    font-size: 20px;
+}
+
 #main-btn {
     margin: 20px;
 }
 
 .btn-group-vertical>.btn {
-    margin-bottom: 15px
+    margin-bottom: 15px;
 }
