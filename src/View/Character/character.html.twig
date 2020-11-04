@@ -11,11 +11,13 @@
             </div>
             <div class="imageUploader">
                 <input type="hidden" name="MAX_FILE_SIZE" value="1000000">
-                <label for="image">Choose an avatar for your character :</label>
+                <label class="imageLabel" for="image">Choose an avatar for your character :</label>
                 <input class="imageInput" type="file" name="image" onchange="loadFile()" accept=".jpg, .jpeg, .png">
-                <img class="avatarUpload" id="output" src="/assets/images/characters/grumpy.png">
-                {% include 'Character/stats.html.twig' %}
+                <div class="frameBackground">
+                    <img class="avatarUpload" id="output" src="/assets/images/characters/grumpy.png">
+                </div>
             </div>
+            {% include 'Character/stats.html.twig' %}
             <div class="buttonCenter">
                 <button type="button" class="fightButton">Ready ! <img class="buttonLogo" src="/assets/images/icones/fight.png" alt="fighting spirited person"> </button>
             </div>
