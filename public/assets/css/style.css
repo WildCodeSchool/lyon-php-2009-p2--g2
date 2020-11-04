@@ -37,6 +37,7 @@
 
 .characterPage {
     text-align: center;
+    background-image: ;
 }
 
 .namePlate {
@@ -62,6 +63,26 @@
     background: none;
 }
 
+.imageInput {
+    margin-bottom: 30px;
+}
+
+.imageUploader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatarUpload {
+    object-fit: contain; /* Do not scale the image */
+    object-position: center; /* Center the image within the element */
+    height: 300px;
+    width: 300px;
+    border-radius: 20px;
+    border: solid black 3px;
+}
+
 .buttonCenter {
     margin-top: 50px;
     text-align: center;
@@ -80,6 +101,7 @@
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
+    margin-bottom: 50px;
 }
 
 .fightButton:hover {background-color: #3e8e41}

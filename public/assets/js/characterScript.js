@@ -1,6 +1,25 @@
 /*  ==========================================
     Character creation page
 * ========================================== */
+
+/*  ==========================================
+    Image upload
+* ========================================== */
+
+let output = document.getElementById('output');
+
+function loadFile() {
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+        URL.revokeObjectURL(output.src)
+    }
+};
+
+
+/*  ==========================================
+    STATS
+* ========================================== */
+
 //Var default setting
 
 let remainingPoints = 10;
