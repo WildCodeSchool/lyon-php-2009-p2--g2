@@ -18,11 +18,18 @@ use App\Model\GameManager;
 class GameController extends AbstractController
 {
 
+    /**
+     *  Display character creation form
+     */
     public function createCharacter()
     {
         return $this->twig->render('Character/character.html.twig');
     }
 
+    /**
+     * Call newGame method of GameManager if no errors in form.
+     * @return string
+     */
     public function start()
     {
         $errors = [];
@@ -54,7 +61,7 @@ class GameController extends AbstractController
                 move_uploaded_file ( $_FILES['image']['tmp_name'], $uploadFile );
                 $gameManager = new GameManager();
                 $character = [
-                    'name' => $_POST['name'],
+                    'name' => $name,
                     'image' => $filename,
                     'strength' => $_POST['strength'],
                     'energy' => $_POST['energy'],

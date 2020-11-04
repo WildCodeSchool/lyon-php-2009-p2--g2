@@ -28,6 +28,7 @@ class GameManager extends AbstractManager
     }
 
     /**
+     * Insert into table the character data.
      * @param array $character
      * @return int
      */
