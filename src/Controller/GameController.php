@@ -23,4 +23,31 @@ class GameController extends AbstractController
         return $this->twig->render('Character/character.html.twig');
     }
 
+    public function start()
+    {
+        $errors = [];
+        $mimeAllowed = [
+            'png' => 'image/png',
+            'jpe' => 'image/jpeg',
+            'jpeg' => 'image/jpeg',
+            'jpg' => 'image/jpeg',
+        ];
+        if (isset($_FILES) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (!in_array ( $_FILES['image']['type'], $mimeAllowed )) {
+                $errors['type'] = "Sorry mate, your file has a wrong extension -> only jpeg and png !";
+            }
+            if ($_FILES['image']['size'] > 1000000) {
+                $errors['size'] = "Sorry mate, your file is too big";
+            }
+            if (!empty( $errors )) {
+                return $this->twig->render('Character/character.html.twig', ['errors' => $errors]);
+            } else {
+                $extension = pathinfo ( $name, PATHINFO_EXTENSION );
+                $filename = uniqid () . '.' . $extension;
+                $uploadDir = '/assets/images/characters/';
+                $uploadFile = $uploadDir . basename ( $filename );
+                move_uploaded_file ( $_FILES['images']['tmp_name'], $uploadFile );
+            }
+        }
+    }
 }

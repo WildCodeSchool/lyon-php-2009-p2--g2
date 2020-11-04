@@ -1,37 +1,28 @@
 /*  ==========================================
     Character creation page
 * ========================================== */
+//Var default setting
 
-/*  ==========================================
-    SHOW UPLOADED IMAGE
-* ========================================== */
-function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
+let strength = 0;
+let energy = 0;
+let humor = 0;
+let agility = 0;
 
-        reader.onload = function (e) {
-            $('#imageResult')
-                .attr('src', e.target.result);
-        };
-        reader.readAsDataURL(input.files[0]);
-    }
-}
+//Value selector
 
-$(function () {
-    $('#upload').on('change', function () {
-        readURL(input);
-    });
-});
+const strenghtValue = document.querySelector("#strength");
+const energyValue = document.querySelector("#energy");
+const humorValue = document.querySelector("#humor");
+const agilityValue = document.querySelector("#agility");
 
-/*  ==========================================
-    SHOW UPLOADED IMAGE NAME
-* ========================================== */
-var input = document.getElementById( 'upload' );
-var infoArea = document.getElementById( 'upload-label' );
+//+ and - selector
 
-input.addEventListener( 'change', showFileName );
-function showFileName( event ) {
-    var input = event.srcElement;
-    var fileName = input.files[0].name;
-    infoArea.textContent = 'File name: ' + fileName;
-}
+const strenghtPlus = document.querySelector("#strengthPlus");
+const strenghtMinus = document.querySelector("#strengthMinus");
+const energyPlus = document.querySelector("#energyPlus");
+const energyMinus = document.querySelector("#energyMinus");
+const humorPlus = document.querySelector("#humorPlus");
+const humorMinus = document.querySelector("#humorMinus");
+const agilityPlus = document.querySelector("#agilityPlus");
+const agilityMinus = document.querySelector("#agilityMinus");
+
