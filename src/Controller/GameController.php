@@ -17,7 +17,6 @@ use App\Model\GameManager;
  */
 class GameController extends AbstractController
 {
-
     /**
      *  Display character creation form
      */

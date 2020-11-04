@@ -10,6 +10,7 @@
 namespace App\Model;
 
 /**
+ * Class GameManager
  *
  */
 class GameManager extends AbstractManager
