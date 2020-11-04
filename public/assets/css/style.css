@@ -136,6 +136,12 @@
     transform: translateY(4px);
 }
 
+.errorMessage {
+    color: #b04e4e;
+    font-weight: bold;
+    text-align: center;
+}
+
 /*
 *
 * ==========================================

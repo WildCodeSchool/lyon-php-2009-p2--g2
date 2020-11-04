@@ -33,6 +33,11 @@ class GameController extends AbstractController
             'jpg' => 'image/jpeg',
         ];
         if (isset($_FILES) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['name']) && !empty($_POST['name'])) {
+                $name = trim($_POST['name']);
+            } else {
+                $errors['type'] = "Sorry mate, you need to enter a name for your character !";
+            }
             if (!in_array ( $_FILES['image']['type'], $mimeAllowed )) {
                 $errors['type'] = "Sorry mate, your file has a wrong extension -> only jpeg and png !";
             }
@@ -42,12 +47,26 @@ class GameController extends AbstractController
             if (!empty( $errors )) {
                 return $this->twig->render('Character/character.html.twig', ['errors' => $errors]);
             } else {
-                $extension = pathinfo ( $name, PATHINFO_EXTENSION );
+                $extension = pathinfo ( $_FILES['image']['name'], PATHINFO_EXTENSION );
                 $filename = uniqid () . '.' . $extension;
                 $uploadDir = '/assets/images/characters/';
                 $uploadFile = $uploadDir . basename ( $filename );
-                move_uploaded_file ( $_FILES['images']['tmp_name'], $uploadFile );
+                move_uploaded_file ( $filename, $uploadFile );
+                $gameManager = new GameManager();
+                $character = [
+                    'name' => $_POST['name'],
+                    'image' => $filename,
+                    'strength' => $_POST['strength'],
+                    'energy' => $_POST['energy'],
+                    'humor' => $_POST['humor'],
+                    'agility' => $_POST['agility'],
+                ];
+                $id = $gameManager->newGame($character);
+                header('Location:/');
             }
+        } else {
+            $errors['emptyFile'] = "You need to upload an avatar in order to play";
+            return $this->twig->render('Character/character.html.twig', ['errors' => $errors]);
         }
     }
 }

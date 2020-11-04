@@ -5,13 +5,15 @@
 {% block content %}
     <div class="characterPage">
         <h1>New Character</h1>
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="/game/start" method="post" enctype="multipart/form-data">
             <div class="namePlate">
-                <input class="nameInput" type="text" name="title" required placeholder="Your name here...">
+                <input class="nameInput" type="text" name="name" required placeholder="Your name here...">
+                <p class="errorMessage">{{ errors.name }}</p>
             </div>
             <div class="imageUploader">
                 <input type="hidden" name="MAX_FILE_SIZE" value="1000000">
                 <label class="imageLabel" for="image">Choose an avatar for your character :</label>
+                <p class="errorMessage">{{ errors.emptyFile }} {{ errors.type }} {{ errors.size }}</p>
                 <input class="imageInput" type="file" name="image" onchange="loadFile()" accept=".jpg, .jpeg, .png">
                 <div class="frameBackground">
                     <img class="avatarUpload" id="output" src="/assets/images/characters/grumpy.png">
@@ -19,7 +21,7 @@
             </div>
             {% include 'Character/stats.html.twig' %}
             <div class="buttonCenter">
-                <button type="button" class="fightButton">Ready ! <img class="buttonLogo" src="/assets/images/icones/fight.png" alt="fighting spirited person"> </button>
+                <button type="submit" class="fightButton">Ready ! <img class="buttonLogo" src="/assets/images/icones/fight.png" alt="fighting spirited person"> </button>
             </div>
         </form>
     </div>
