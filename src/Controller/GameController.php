@@ -49,9 +49,9 @@ class GameController extends AbstractController
             } else {
                 $extension = pathinfo ( $_FILES['image']['name'], PATHINFO_EXTENSION );
                 $filename = uniqid () . '.' . $extension;
-                $uploadDir = '/assets/images/characters/';
+                $uploadDir = 'assets/images/characters/';
                 $uploadFile = $uploadDir . basename ( $filename );
-                move_uploaded_file ( $filename, $uploadFile );
+                move_uploaded_file ( $_FILES['image']['tmp_name'], $uploadFile );
                 $gameManager = new GameManager();
                 $character = [
                     'name' => $_POST['name'],
