@@ -3,6 +3,7 @@
 * ========================================== */
 //Var default setting
 
+let remainingPoints = 10;
 let strength = 0;
 let energy = 0;
 let humor = 0;
@@ -10,6 +11,7 @@ let agility = 0;
 
 //Value selector
 
+const remainingPoints = document.querySelector("#remainingPoints");
 const strenghtValue = document.querySelector("#strength");
 const energyValue = document.querySelector("#energy");
 const humorValue = document.querySelector("#humor");
