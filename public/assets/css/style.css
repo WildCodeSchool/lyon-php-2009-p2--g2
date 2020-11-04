@@ -30,7 +30,7 @@
 /*
 *
 * ==========================================
-* Character style
+* Character page style
 * ==========================================
 *
 */
@@ -44,6 +44,67 @@
 *
 */
 
-.statButton {
+.characterStatsArea {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
+.statContainer {
+    display: flex;
+    flex-direction: row;
+    width: 45%;
+    height: 200px;
+}
+
+.statColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.statInfos {
+
+}
+
+.statIcon {
+    max-width: 90%;
+    max-height: 90%;
+    display: inline-block;
+}
+
+.statInput {
+    width: 90%;
+    height: 25%;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.statButtonContainer {
+    width: 90%;
+    height: 100%;
+}
+
+.statButton {
+    width: 90%;
+    height: 100%;
+}
+
+.buttonPlus {
+    background-color: #62b562;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.buttonMinus {
+    background-color: #b04e4e;
+    border-radius: 0px 0px 10px 10px;
 }

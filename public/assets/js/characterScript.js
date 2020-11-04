@@ -11,7 +11,7 @@ let agility = 0;
 
 //Value selector
 
-const remainingPoints = document.querySelector("#remainingPoints");
+const remainingPointsValue = document.querySelector("#remainingPoints");
 const strenghtValue = document.querySelector("#strength");
 const energyValue = document.querySelector("#energy");
 const humorValue = document.querySelector("#humor");
@@ -28,3 +28,8 @@ const humorMinus = document.querySelector("#humorMinus");
 const agilityPlus = document.querySelector("#agilityPlus");
 const agilityMinus = document.querySelector("#agilityMinus");
 
+strenghtValue.value = strength;
+energyValue.value = energy;
+humorValue.value = humor;
+agilityValue.value = agility;
+remainingPointsValue.textContent = remainingPoints;
