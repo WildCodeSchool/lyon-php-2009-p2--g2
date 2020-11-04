@@ -35,6 +35,33 @@
 *
 */
 
+.buttonCenter {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.buttonLogo {
+    width: 50px;
+}
+
+.fightButton {
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.fightButton:hover {background-color: #3e8e41}
+
+.fightButton:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
 
 /*
 *
@@ -56,6 +83,10 @@
     flex-direction: row;
     width: 45%;
     height: 200px;
+    margin: 10px;
+    background-color: azure;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .statColumn {
@@ -67,7 +98,8 @@
 }
 
 .statInfos {
-
+    width: 90%;
+    height: 100%;
 }
 
 .statIcon {
@@ -77,8 +109,12 @@
 }
 
 .statInput {
+    border: none;
     width: 90%;
     height: 25%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -89,6 +125,10 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
 .statButtonContainer {
     width: 90%;
     height: 100%;
@@ -97,6 +137,8 @@ input[type=number]::-webkit-outer-spin-button {
 .statButton {
     width: 90%;
     height: 100%;
+    font-size: 5em;
+    text-align: center;
 }
 
 .buttonPlus {
@@ -107,4 +149,5 @@ input[type=number]::-webkit-outer-spin-button {
 .buttonMinus {
     background-color: #b04e4e;
     border-radius: 0px 0px 10px 10px;
+    color: aliceblue;
 }

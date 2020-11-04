@@ -33,3 +33,91 @@ energyValue.value = energy;
 humorValue.value = humor;
 agilityValue.value = agility;
 remainingPointsValue.textContent = remainingPoints;
+
+strenghtPlus.addEventListener("click", function()
+    {
+        if (remainingPoints > 0) {
+            strength++;
+            remainingPoints--;
+            strenghtValue.value = strength;
+            remainingPointsValue.textContent = remainingPoints;
+        }
+    }
+);
+
+strenghtMinus.addEventListener("click", function()
+    {
+        if (remainingPoints < 10 && strength !== 0) {
+            strength--;
+            remainingPoints++;
+            strenghtValue.value = strength;
+            remainingPointsValue.textContent = remainingPoints;
+        }
+    }
+);
+
+energyPlus.addEventListener("click", function()
+    {
+        if (remainingPoints > 0) {
+            energy++;
+            remainingPoints--;
+            energyValue.value = energy;
+            remainingPointsValue.textContent = remainingPoints;
+        }
+    }
+);
+
+energyMinus.addEventListener("click", function()
+    {
+        if (remainingPoints < 10 && energy !== 0) {
+            energy--;
+            remainingPoints++;
+            energyValue.value = energy;
+            remainingPointsValue.textContent = remainingPoints;
+        }
+    }
+);
+
+humorPlus.addEventListener("click", function()
+    {
+        if (remainingPoints > 0) {
+            humor++;
+            remainingPoints--;
+            humorValue.value = humor;
+            remainingPointsValue.textContent = remainingPoints;
+        }
+    }
+);
+
+humorMinus.addEventListener("click", function()
+    {
+        if (remainingPoints < 10 && humor !== 0) {
+            humor--;
+            remainingPoints++;
+            humorValue.value = humor;
+            remainingPointsValue.textContent = remainingPoints;
+        }
+    }
+);
+
+agilityPlus.addEventListener("click", function()
+    {
+        if (remainingPoints > 0) {
+            agility++;
+            remainingPoints--;
+            agilityValue.value = agility;
+            remainingPointsValue.textContent = remainingPoints;
+        }
+    }
+);
+
+agilityMinus.addEventListener("click", function()
+    {
+        if (remainingPoints < 10 && agility !== 0) {
+            agility--;
+            remainingPoints++;
+            agilityValue.value = agility;
+            remainingPointsValue.textContent = remainingPoints;
+        }
+    }
+);
