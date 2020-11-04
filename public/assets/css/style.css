@@ -35,6 +35,33 @@
 *
 */
 
+.characterPage {
+    text-align: center;
+}
+
+.namePlate {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    width: 60%;
+    max-width: 350px;
+    height: 100px;
+    padding: 50px;
+    background-image: url("../images/characters/namePlate.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100px;
+    text-align: center;
+}
+
+.nameInput {
+    text-align: center;
+    height: 50px;
+    font-size: 1.7em;
+    font-weight: bold;
+    background: none;
+}
+
 .buttonCenter {
     margin-top: 50px;
     text-align: center;
@@ -115,6 +142,8 @@
     text-align: center;
     font-weight: bold;
     font-size: 1.2em;
+    cursor: default;
+    margin-top: 10px;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -139,6 +168,8 @@ input[type=number] {
     height: 100%;
     font-size: 5em;
     text-align: center;
+    cursor: pointer;
+    user-select: none;
 }
 
 .buttonPlus {
