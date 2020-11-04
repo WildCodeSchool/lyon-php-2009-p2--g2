@@ -9,7 +9,7 @@
 
 namespace App\Controller;
 
-use App\Model\CharacterManager;
+use App\Model\GameManager;
 
 /**
  * Class GameController

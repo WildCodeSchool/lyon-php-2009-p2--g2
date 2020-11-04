@@ -12,7 +12,7 @@ namespace App\Model;
 /**
  *
  */
-class CharacterManager extends AbstractManager
+class GameManager extends AbstractManager
 {
     /**
      *
