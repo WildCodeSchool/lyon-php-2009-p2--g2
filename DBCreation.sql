@@ -95,24 +95,23 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `character_has_item`
+-- Table `game_has_item`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `character_has_item` ;
+DROP TABLE IF EXISTS `game_has_item` ;
 
-CREATE TABLE IF NOT EXISTS `character_has_item` (
-  `character_id` INT NOT NULL,
-  `character_user_id` INT NOT NULL,
-  `character_game_id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `game_has_item` (
+  `game_id` INT NOT NULL,
+  `game_user_id` INT NOT NULL,
   `item_id` INT NOT NULL,
-  PRIMARY KEY (`character_id`, `character_user_id`, `character_game_id`, `item_id`),
-  INDEX `fk_character_has_item_item1_idx` (`item_id` ASC) VISIBLE,
-  INDEX `fk_character_has_item_character1_idx` (`character_id` ASC, `character_user_id` ASC, `character_game_id` ASC) VISIBLE,
-  CONSTRAINT `fk_character_has_item_character1`
-    FOREIGN KEY (`character_id` , `character_user_id`)
+  PRIMARY KEY (`game_id`, `game_user_id`, `item_id`),
+  INDEX `fk_game_has_item_item1_idx` (`item_id` ASC) VISIBLE,
+  INDEX `fk_game_has_item_game1_idx` (`game_id` ASC, `game_user_id` ASC) VISIBLE,
+  CONSTRAINT `fk_game_has_item_game1`
+    FOREIGN KEY (`game_id` , `game_user_id`)
     REFERENCES `game` (`id` , `user_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_character_has_item_item1`
+  CONSTRAINT `fk_game_has_item_item1`
     FOREIGN KEY (`item_id`)
     REFERENCES `item` (`id`)
     ON DELETE NO ACTION
