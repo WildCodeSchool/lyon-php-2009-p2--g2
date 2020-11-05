@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-5">
+        <div class="row">
+            <div class="col-6 div-character">
+                <span class="text-power text-secondary">Str: {{ player.strength }}</span>
+                <span class="text-power text-secondary">Ene: {{ player.energy }}</span>
+                <span class="text-power power text-secondary">Hum: {{ player.humor }}</span>
+                <span class="text-power text-secondary">Agi: {{ player.agility }}</span>
+            </div>
+            <div class="col-6 div-power">
+                <div>{{ player.name }}</div>
+                <div><img class="image-character" src="{{ player.image }}"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-7 div-items">
+       <table class="items">
+          {% set index = 0 %}
+          {% for i in 0..1 %}
+              <tr class="tr-items">
+                  {% for j in 0..2 %}
+                      {%if items[index].image is defined %}
+                          <th class="column-item">
+                              <img class="image-item" alt="{{ items[index].name }}" title="Str: {{ items[index].strength }}, Ene: {{ items[index].energy }}, Hum: {{ items[index].humor }}, Agi: {{ items[index].agility }}" src="{{ items[index].image }}">
+                          </th>
+                      {% else %}
+                          <th></th>
+                      {% endif %}
+                      {% set index = 1 + index %}
+                  {% endfor %}
+             </tr>
+          {% endfor %}
+        </table>
+    </div>
+</div>

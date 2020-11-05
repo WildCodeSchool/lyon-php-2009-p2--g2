@@ -17,13 +17,13 @@ class GameManager extends AbstractManager
     /**
      *
      */
-    const TABLE_GAME = 'game';
+    const TABLE1 = 'game';
 
     /**
      *  Initializes this class.
      */
     public function __construct()
     {
-        parent::__construct(self::TABLE);
+        parent::__construct(self::TABLE1);
     }
 }

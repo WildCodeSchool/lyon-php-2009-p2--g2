@@ -6,18 +6,13 @@
  * Time: 18:20
  * PHP version 7
  */
-
 namespace App\Model;
-
 
 /**
  *
  */
 class GameEventManager extends AbstractManager
 {
-    /**
-     *
-     */
     const TABLE = 'game_has_event';
     /**
      *  Initializes this class.

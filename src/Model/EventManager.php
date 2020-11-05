@@ -1,14 +1,23 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: sylvain
+ * Date: 07/03/18
+ * Time: 18:20
+ * PHP version 7
+ */
 
 namespace App\Model;
 
+/**
+ *
+ */
 class EventManager extends AbstractManager
 {
     /**
      *
      */
     const TABLE = 'event';
-
     /**
      *  Initializes this class.
      */
@@ -16,5 +25,11 @@ class EventManager extends AbstractManager
     {
         parent::__construct(self::TABLE);
     }
-
+    public function selectAllEvents($floor): array
+    {
+        $statement = $this->pdo->prepare('SELECT * FROM ' .  self::TABLE . " WHERE floor_restriction = :floor");
+        $statement->bindValue(':floor', $floor, \PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetchAll();
+    }
 }
