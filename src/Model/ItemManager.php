@@ -9,14 +9,8 @@
 
 namespace App\Model;
 
-/**
- *
- */
 class ItemManager extends AbstractManager
 {
-    /**
-     *
-     */
     const TABLE = 'item';
     const TABLE2 = 'game_has_item';
     /**
@@ -35,7 +29,6 @@ class ItemManager extends AbstractManager
         // prepared request
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (`title`) VALUES (:title)");
         $statement->bindValue('title', $item['title'], \PDO::PARAM_STR);
-
         if ($statement->execute()) {
             return (int)$this->pdo->lastInsertId();
         }

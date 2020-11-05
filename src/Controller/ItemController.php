@@ -13,7 +13,6 @@ use App\Model\ItemManager;
 
 /**
  * Class ItemController
- *
  */
 class ItemController extends AbstractController
 {
