@@ -29,7 +29,6 @@ class ItemController extends AbstractController
     {
         $itemManager = new ItemManager();
         $items = $itemManager->selectAll();
-
         return $this->twig->render('Item/index.html.twig', ['items' => $items]);
     }
     /**
@@ -45,7 +44,6 @@ class ItemController extends AbstractController
     {
         $itemManager = new ItemManager();
         $item = $itemManager->selectOneById($id);
-
         return $this->twig->render('Item/show.html.twig', ['item' => $item]);
     }
     /**
@@ -79,7 +77,6 @@ class ItemController extends AbstractController
      */
     public function add()
     {
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $itemManager = new ItemManager();
             $item = [

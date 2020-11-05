@@ -63,6 +63,7 @@ class ItemManager extends AbstractManager
         return $statement->execute();
     }
     /**
+     * Return all character items
      * @param int $idGame
      * @return array
      */
