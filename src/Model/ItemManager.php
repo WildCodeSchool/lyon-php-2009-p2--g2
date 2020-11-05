@@ -19,7 +19,6 @@ class ItemManager extends AbstractManager
      */
     const TABLE = 'item';
     const TABLE2 = 'game_has_item';
-
     /**
      *  Initializes this class.
      */
@@ -27,8 +26,6 @@ class ItemManager extends AbstractManager
     {
         parent::__construct(self::TABLE);
     }
-
-
     /**
      * @param array $item
      * @return int
@@ -43,8 +40,6 @@ class ItemManager extends AbstractManager
             return (int)$this->pdo->lastInsertId();
         }
     }
-
-
     /**
      * @param int $id
      */
@@ -55,8 +50,6 @@ class ItemManager extends AbstractManager
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
     }
-
-
     /**
      * @param array $item
      * @return bool
@@ -67,10 +60,8 @@ class ItemManager extends AbstractManager
         $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET `title` = :title WHERE id=:id");
         $statement->bindValue('id', $item['id'], \PDO::PARAM_INT);
         $statement->bindValue('title', $item['title'], \PDO::PARAM_STR);
-
         return $statement->execute();
     }
-
     /**
      * @param int $idGame
      * @return array
@@ -78,7 +69,9 @@ class ItemManager extends AbstractManager
     public function selectAllPlayerItems(int $idGame): array
     {
         // prepared request
-        $statement = $this->pdo->prepare("SELECT * FROM " . self::TABLE . " INNER JOIN " . self::TABLE2 . " ON " . self::TABLE . ".id = " . self::TABLE2 . ".item_id WHERE game_id = :game_id");
+        $query = "SELECT * FROM " . self::TABLE . " INNER JOIN " . self::TABLE2 . " ON " . self::TABLE . ".id = ";
+        $query .= self::TABLE2 . ".item_id WHERE game_id = :game_id";
+        $statement = $this->pdo->prepare($query);
         $statement->bindValue('game_id', $idGame, \PDO::PARAM_INT);
         $statement->execute();
         return $statement->fetchAll();
