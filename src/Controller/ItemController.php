@@ -13,12 +13,9 @@ use App\Model\ItemManager;
 
 /**
  * Class ItemController
- *
  */
 class ItemController extends AbstractController
 {
-
-
     /**
      * Display item listing
      *
@@ -31,11 +28,8 @@ class ItemController extends AbstractController
     {
         $itemManager = new ItemManager();
         $items = $itemManager->selectAll();
-
         return $this->twig->render('Item/index.html.twig', ['items' => $items]);
     }
-
-
     /**
      * Display item informations specified by $id
      *
@@ -49,11 +43,8 @@ class ItemController extends AbstractController
     {
         $itemManager = new ItemManager();
         $item = $itemManager->selectOneById($id);
-
         return $this->twig->render('Item/show.html.twig', ['item' => $item]);
     }
-
-
     /**
      * Display item edition page specified by $id
      *
@@ -75,8 +66,6 @@ class ItemController extends AbstractController
 
         return $this->twig->render('Item/edit.html.twig', ['item' => $item]);
     }
-
-
     /**
      * Display item creation page
      *
@@ -87,7 +76,6 @@ class ItemController extends AbstractController
      */
     public function add()
     {
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $itemManager = new ItemManager();
             $item = [
@@ -99,8 +87,6 @@ class ItemController extends AbstractController
 
         return $this->twig->render('Item/add.html.twig');
     }
-
-
     /**
      * Handle item deletion
      *

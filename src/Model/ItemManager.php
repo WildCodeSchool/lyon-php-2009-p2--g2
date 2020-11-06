@@ -9,16 +9,10 @@
 
 namespace App\Model;
 
-/**
- *
- */
 class ItemManager extends AbstractManager
 {
-    /**
-     *
-     */
     const TABLE = 'item';
-
+    const TABLE2 = 'game_has_item';
     /**
      *  Initializes this class.
      */
@@ -26,8 +20,6 @@ class ItemManager extends AbstractManager
     {
         parent::__construct(self::TABLE);
     }
-
-
     /**
      * @param array $item
      * @return int
@@ -37,13 +29,10 @@ class ItemManager extends AbstractManager
         // prepared request
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (`title`) VALUES (:title)");
         $statement->bindValue('title', $item['title'], \PDO::PARAM_STR);
-
         if ($statement->execute()) {
             return (int)$this->pdo->lastInsertId();
         }
     }
-
-
     /**
      * @param int $id
      */
@@ -54,20 +43,31 @@ class ItemManager extends AbstractManager
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
     }
-
-
     /**
      * @param array $item
      * @return bool
      */
     public function update(array $item):bool
     {
-
         // prepared request
         $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET `title` = :title WHERE id=:id");
         $statement->bindValue('id', $item['id'], \PDO::PARAM_INT);
         $statement->bindValue('title', $item['title'], \PDO::PARAM_STR);
-
         return $statement->execute();
+    }
+    /**
+     * Return all character items
+     * @param int $idGame
+     * @return array
+     */
+    public function selectAllPlayerItems(int $idGame): array
+    {
+        // prepared request
+        $query = "SELECT * FROM " . self::TABLE . " INNER JOIN " . self::TABLE2 . " ON " . self::TABLE . ".id = ";
+        $query .= self::TABLE2 . ".item_id WHERE game_id = :game_id";
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue('game_id', $idGame, \PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetchAll();
     }
 }
