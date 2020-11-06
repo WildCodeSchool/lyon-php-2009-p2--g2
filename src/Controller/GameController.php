@@ -84,7 +84,7 @@ class GameController extends AbstractController
                     'agility' => $_POST['agility'],
                 ];
                 $id = $gameManager->newGame($character);
-                header('Location:/');
+                header("Location:/game/event/$id");
             }
         } else {
             $errors['emptyFile'] = "You need to upload an avatar in order to play";
