@@ -1,33 +1,25 @@
 {% extends 'layout.html.twig' %}
 
-{% block content %}
-    <h1>Hello Wilder !</h1>
+{% block stylesheet %}{% endblock %}
+
+{% block title %}
+    Welcome
 {% endblock %}
 
+{% block content %}
+    <div class="flexbox-container" id="fbc1">
+        <div id="main-btn" class="btn-group-vertical">
+            <button type="button" class="btn btn-secondary">Play</button>
+            <button type="button" class="btn btn-secondary">Options</button>
+            <button type="button" class="btn btn-secondary">Pantheon</button>
+        </div>
+    </div>
+    <div class="flexbox-container" id="fbc2">
+        <div id="main-btn" class="btn-group-vertical">
+            <button type="button" class="btn btn-secondary">How to play</button>
+            <button type="button" class="btn btn-secondary">Credits</button>
+        </div>
+    </div>
+{% endblock %}
 
-{#{% extends 'layout.html.twig' %}#}
-
-{#{% block stylesheet %}{% endblock %}#}
-
-{#{% block title %}#}
-{#    Welcome#}
-{#{% endblock %}#}
-
-{#{% block content %}#}
-{#    <h1>Hello Wilder !</h1>#}
-{#    <div class="flexbox-container" id="fbc1">#}
-{#        <div id="main-btn" class="btn-group-vertical">#}
-{#            <button type="button" class="btn btn-secondary">Play</button>#}
-{#            <button type="button" class="btn btn-secondary">Options</button>#}
-{#            <button type="button" class="btn btn-secondary">Pantheon</button>#}
-{#        </div>#}
-{#    </div>#}
-{#    <div class="flexbox-container" id="fbc2">#}
-{#        <div id="main-btn" class="btn-group-vertical">#}
-{#            <button type="button" class="btn btn-secondary">How to play</button>#}
-{#            <button type="button" class="btn btn-secondary">Credits</button>#}
-{#        </div>#}
-{#    </div>#}
-{#{% endblock %}#}
-
-{#{% block javascript %}{% endblock %}#}
+{% block javascript %}{% endblock %}
