@@ -30,6 +30,67 @@
 /*
 *
 * ==========================================
+* event page style
+* ==========================================
+*
+*/
+
+.items, th, td {
+    border: 2px solid black;
+    padding: 0;
+    margin: auto;
+}
+th {
+    width: 42px;
+    height: 42px;
+}
+.image-item {
+    width: 42px;
+    height: 42px;
+}
+.image-character {
+    width: 65px;
+    height: 65px;
+}
+.text-power{
+    font-size: x-small;
+}
+.div-items{
+    align-self: center;
+}
+.div-character{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.event-buttons{
+    display: flex;
+    justify-content: space-around;
+    flex-flow: wrap;
+}
+
+@media only screen and (min-width: 900px) {
+    th {
+        width: 50px;
+        height: 50px;
+    }
+    .image-item {
+        width: 50px;
+        height: 50px;
+    }
+    .image-character {
+        width: 80px;
+        height: 80px;
+    }
+    .eventImage{
+        width: 200px;
+    }
+}
+
+/*
+*
+* ==========================================
 * Character page style
 * ==========================================
 *
