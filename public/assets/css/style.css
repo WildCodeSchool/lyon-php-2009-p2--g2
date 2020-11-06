@@ -1,3 +1,40 @@
+/*
+*
+* ==========================================
+* NavBar
+* ==========================================
+*
+*/
+
+.flexbox-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+#fbc1 .btn-group-vertical>.btn {
+    font-size: 25px;
+}
+
+#fbc2 .btn-group-vertical>.btn {
+    font-size: 20px;
+}
+
+#main-btn {
+    margin: 20px;
+}
+
+.btn-group-vertical>.btn {
+    margin-bottom: 15px;
+}
+
+/*
+*
+* ==========================================
+* event page style
+* ==========================================
+*
+*/
+
 .items, th, td {
     border: 2px solid black;
     padding: 0;
@@ -51,4 +88,220 @@ th {
     }
 }
 
+/*
+*
+* ==========================================
+* Character page style
+* ==========================================
+*
+*/
 
+.characterPage {
+    text-align: center;
+    background-image: url("../images/background/backgroundOffice.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.characterPage h1 {
+    padding-top: 50px;
+}
+
+.namePlate {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    width: 60%;
+    max-width: 350px;
+    height: 100px;
+    padding: 50px;
+    background-image: url("../images/characters/namePlate.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100px;
+    text-align: center;
+}
+
+.nameInput {
+    text-align: center;
+    height: 50px;
+    font-size: 1.7em;
+    font-weight: bold;
+    background: none;
+}
+
+.imageInput {
+    margin-bottom: 30px;
+}
+
+.imageLabel {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.imageUploader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatarUpload {
+    object-fit: contain; /* Do not scale the image */
+    object-position: center; /* Center the image within the element */
+    height: 300px;
+    width: 300px;
+    border-radius: 5px;
+    border-image: url("../images/characters/cadre.png") 10;
+}
+
+.frameBackground {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/characters/frame.png");
+    height: 390px;
+    width: 390px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 390px 390px;
+}
+
+.buttonCenter {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.buttonLogo {
+    width: 50px;
+}
+
+.fightButton {
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #6695a9;
+    margin-bottom: 50px;
+}
+
+.fightButton:hover {background-color: #3e8e41}
+
+.fightButton:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #686f96;
+    transform: translateY(4px);
+}
+
+.errorMessage {
+    color: #b04e4e;
+    font-weight: bold;
+    text-align: center;
+}
+
+/*
+*
+* ==========================================
+* Point attribution fields
+* ==========================================
+*
+*/
+
+.statTittle {
+    margin-top: 50px;
+    font-size: 2.2em;
+    text-align: center;
+    width: 100%;
+    background: linear-gradient(to right, #a5535500 5%, azure 15%, azure, azure 85%, #a5535500 95%);
+    padding: 10px;
+    color: #1f1e1e;
+    text-shadow: 1px 1px 5px white;
+
+}
+
+.characterStatsArea {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.statContainer {
+    display: flex;
+    flex-direction: row;
+    width: 45%;
+    height: 200px;
+    margin: 10px;
+    background-color: azure;
+    border-radius: 10px;
+}
+
+.statColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.statInfos {
+    width: 90%;
+    height: 100%;
+}
+
+.statIcon {
+    max-width: 90%;
+    max-height: 90%;
+    display: inline-block;
+}
+
+.statInput {
+    border: none;
+    width: 90%;
+    height: 25%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    cursor: default;
+    margin-top: 10px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+.statButtonContainer {
+    width: 90%;
+}
+
+.statButton {
+    width: 90%;
+    height: 90%;
+    font-size: 5em;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.buttonPlus {
+    background-color: #62b562;
+    border-radius: 10px 10px 0 0;
+}
+
+.buttonMinus {
+    background-color: #b04e4e;
+    border-radius: 0 0 10px 10px;
+    color: aliceblue;
+}
