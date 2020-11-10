@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+
+    {% block content %}
+        <div class="flexbox-container" id="fbc3">
+            <div id="main-btn" class="btn-group-vertical">
+                <a href="#" type="button" class="btn btn-secondary">New game</a>
+                {% if is_ended == false %}
+                <a href="#" type="button" class="btn btn-secondary">Resume game</a>
+                {% endif %}
+                <a href="#" type="button" class="btn btn-secondary">Score</a>
+            </div>
+        </div>
+    {% endblock %}
