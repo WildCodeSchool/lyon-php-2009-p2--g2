@@ -1,0 +1,28 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}New Character{% endblock %}
+
+{% block content %}
+    <div class="characterPage">
+        <h1>Elevator</h1>
+        <form action="/game/start" method="post" enctype="multipart/form-data">
+            <div class="namePlate">
+                {{ player.name }}
+            </div>
+            <div class="imageUploader">
+                <input type="hidden" name="MAX_FILE_SIZE" value="1000000">
+                <label class="imageLabel" for="image">Choose an avatar for your character :</label>
+                <p class="errorMessage">{{ errors.emptyFile }} {{ errors.type }} {{ errors.size }}</p>
+                <input class="imageInput" type="file" name="image" onchange="loadFile()" accept=".jpg, .jpeg, .png">
+                <div class="frameBackground">
+                    <img class="avatarUpload" id="output" src="/assets/images/characters/grumpy.png" alt="Grumpy placeholder">
+                </div>
+            </div>
+            {% include 'Elevator/stats.html.twig' %}
+            <div class="buttonCenter">
+                <button type="submit" class="fightButton">Ready ! <img class="buttonLogo" src="/assets/images/icones/fight.png" alt="fighting spirited person"> </button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+{% block javascript %}<script src="/assets/js/elevatorScript.js"></script>{% endblock %}
