@@ -160,7 +160,7 @@ th {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url("../images/background/blackFrame1.png");
+    background-image: url("../images/background/frame1.png");
     height: 380px;
     width: 380px;
     background-repeat: no-repeat;
@@ -309,7 +309,7 @@ input[type=number] {
 /*
 *
 * ==========================================
-* Character page style
+* Elevator style
 * ==========================================
 *
 */
@@ -380,10 +380,139 @@ input[type=number] {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url("../images/background/blackFrame1.png");
+    background-image: url("../images/background/frame1.png");
     height: 250px;
     width: 250px;
     background-repeat: no-repeat;
     background-size: cover;
     background-size: 250px 250px;
+}
+
+.frameBackgroundElevator2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/background/frame2.png");
+    height: 250px;
+    width: 250px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 250px 250px;
+}
+
+.frameBackgroundElevator3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/background/frame3.png");
+    height: 250px;
+    width: 250px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 250px 250px;
+}
+
+.frameBackgroundElevator4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/background/frame4.png");
+    height: 250px;
+    width: 250px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 250px 250px;
+}
+
+/*
+*
+* ==========================================
+* Elevator point attribution fields
+* ==========================================
+*
+*/
+
+.elevatorstatTittle {
+    margin-top: 50px;
+    font-size: 2.2em;
+    text-align: center;
+    width: 100%;
+    background: linear-gradient(to right, #a5535500 5%, azure 15%, azure, azure 85%, #a5535500 95%);
+    padding: 10px;
+    color: #1f1e1e;
+    text-shadow: 1px 1px 5px white;
+}
+
+.elevatorcharacterStatsArea {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.elevatorstatContainer {
+    display: flex;
+    flex-direction: row;
+    width: 45%;
+    height: 200px;
+    margin: 10px;
+    background-color: azure;
+    border-radius: 10px;
+}
+
+.elevatorstatColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.elevatorstatInfos {
+    width: 90%;
+    height: 100%;
+}
+
+.elevatorstatIcon {
+    max-width: 90%;
+    max-height: 90%;
+    display: inline-block;
+}
+
+.elevatorstatInput {
+    border: none;
+    width: 90%;
+    height: 25%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    cursor: default;
+    margin-top: 10px;
+}
+
+.elevatorstatButtonContainer {
+    width: 90%;
+}
+
+.elevatorstatButton {
+    width: 90%;
+    height: 90%;
+    font-size: 5em;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.elevatorbuttonPlus {
+    background-color: #62b562;
+    border-radius: 10px 10px 0 0;
+}
+
+.elevatorbuttonMinus {
+    background-color: #b04e4e;
+    border-radius: 0 0 10px 10px;
+    color: aliceblue;
 }
