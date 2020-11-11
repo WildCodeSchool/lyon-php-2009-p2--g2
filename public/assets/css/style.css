@@ -115,16 +115,17 @@ th {
     width: 60%;
     max-width: 350px;
     height: 100px;
-    padding: 50px;
-    background-image: url("../images/characters/namePlate.png");
+    background-image: url("../images/background/namePlate.png");
     background-repeat: no-repeat;
     background-size: 100% 100px;
     text-align: center;
+    padding-left: 25px;
 }
 
 .nameInput {
     text-align: center;
     height: 50px;
+    width: 250px;
     font-size: 1.7em;
     font-weight: bold;
     background: none;
@@ -152,7 +153,6 @@ th {
     height: 300px;
     width: 300px;
     border-radius: 5px;
-    border-image: url("../images/characters/cadre.png") 10;
 }
 
 .frameBackground {
@@ -160,12 +160,12 @@ th {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url("../images/characters/frame.png");
-    height: 390px;
-    width: 390px;
+    background-image: url("../images/background/blackFrame1.png");
+    height: 380px;
+    width: 380px;
     background-repeat: no-repeat;
     background-size: cover;
-    background-size: 390px 390px;
+    background-size: 380px 380px;
 }
 
 .buttonCenter {
@@ -304,4 +304,86 @@ input[type=number] {
     background-color: #b04e4e;
     border-radius: 0 0 10px 10px;
     color: aliceblue;
+}
+
+/*
+*
+* ==========================================
+* Character page style
+* ==========================================
+*
+*/
+
+.elevatorFrame {
+    background-image: url("../images/background/doorsFrame.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.elevatorFrame h1 {
+    font-size: 2em;
+    padding-top: 7px;
+    color: #cf3434;
+    margin-top: 5px;
+    text-align: center;
+    background-image: url("../images/background/elevatorFloorIndicator.png");
+    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 40px;
+    font-family: Impact, Charcoal, sans-serif;
+    width: 30%;
+    height: 44px;
+}
+
+.elevatorPage {
+    padding-top: 30px;
+    text-align: center;
+    background-image: url("../images/background/elevator.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 80%;
+}
+
+.namePlateElevator {
+    margin-top: -10px;
+    width: 60%;
+    max-width: 230px;
+    height: 100px;
+    background-image: url("../images/background/namePlate.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100px;
+    text-align: center;
+}
+
+.namePlateElevator h2 {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.avatarElevator {
+    height: 200px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+.frameBackgroundElevator1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/background/blackFrame1.png");
+    height: 250px;
+    width: 250px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 250px 250px;
 }

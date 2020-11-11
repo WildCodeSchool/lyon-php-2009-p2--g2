@@ -1,20 +1,6 @@
 /*  ==========================================
-    Character creation page
+    Elevator page
 * ========================================== */
-
-/*  ==========================================
-    Image upload
-* ========================================== */
-
-let output = document.getElementById('output');
-
-function loadFile() {
-    output.src = URL.createObjectURL(event.target.files[0]);
-    output.onload = function() {
-        URL.revokeObjectURL(output.src)
-    }
-};
-
 
 /*  ==========================================
     STATS
@@ -22,7 +8,8 @@ function loadFile() {
 
 //Var default setting
 
-let remainingPoints = 10;
+let maxRemainingPoints = 2;
+let remainingPoints = 2;
 let strength = 0;
 let energy = 0;
 let humor = 0;
@@ -66,7 +53,7 @@ strenghtPlus.addEventListener("click", function()
 
 strenghtMinus.addEventListener("click", function()
     {
-        if (remainingPoints < 10 && strength !== 0) {
+        if (remainingPoints < maxRemainingPoints && strength !== 0) {
             strength--;
             remainingPoints++;
             strenghtValue.value = strength;
@@ -88,7 +75,7 @@ energyPlus.addEventListener("click", function()
 
 energyMinus.addEventListener("click", function()
     {
-        if (remainingPoints < 10 && energy !== 0) {
+        if (remainingPoints < maxRemainingPoints && energy !== 0) {
             energy--;
             remainingPoints++;
             energyValue.value = energy;
@@ -110,7 +97,7 @@ humorPlus.addEventListener("click", function()
 
 humorMinus.addEventListener("click", function()
     {
-        if (remainingPoints < 10 && humor !== 0) {
+        if (remainingPoints < maxRemainingPoints && humor !== 0) {
             humor--;
             remainingPoints++;
             humorValue.value = humor;
@@ -132,7 +119,7 @@ agilityPlus.addEventListener("click", function()
 
 agilityMinus.addEventListener("click", function()
     {
-        if (remainingPoints < 10 && agility !== 0) {
+        if (remainingPoints < maxRemainingPoints && agility !== 0) {
             agility--;
             remainingPoints++;
             agilityValue.value = agility;
