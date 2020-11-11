@@ -22,6 +22,7 @@ function loadFile() {
 
 //Var default setting
 
+let maxRemainingPoints = 10;
 let remainingPoints = 10;
 let strength = 0;
 let energy = 0;
@@ -66,7 +67,7 @@ strenghtPlus.addEventListener("click", function()
 
 strenghtMinus.addEventListener("click", function()
     {
-        if (remainingPoints < 10 && strength !== 0) {
+        if (remainingPoints < maxRemainingPoints && strength !== 0) {
             strength--;
             remainingPoints++;
             strenghtValue.value = strength;
@@ -88,7 +89,7 @@ energyPlus.addEventListener("click", function()
 
 energyMinus.addEventListener("click", function()
     {
-        if (remainingPoints < 10 && energy !== 0) {
+        if (remainingPoints < maxRemainingPoints && energy !== 0) {
             energy--;
             remainingPoints++;
             energyValue.value = energy;
@@ -110,7 +111,7 @@ humorPlus.addEventListener("click", function()
 
 humorMinus.addEventListener("click", function()
     {
-        if (remainingPoints < 10 && humor !== 0) {
+        if (remainingPoints < maxRemainingPoints && humor !== 0) {
             humor--;
             remainingPoints++;
             humorValue.value = humor;
@@ -132,7 +133,7 @@ agilityPlus.addEventListener("click", function()
 
 agilityMinus.addEventListener("click", function()
     {
-        if (remainingPoints < 10 && agility !== 0) {
+        if (remainingPoints < maxRemainingPoints && agility !== 0) {
             agility--;
             remainingPoints++;
             agilityValue.value = agility;
