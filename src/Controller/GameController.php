@@ -147,6 +147,7 @@ class GameController extends AbstractController
     public function elevator($idGame)
     {
         $game = new GameManager();
+        $game->save ($idGame);
         $newPlayer = $game->selectOneById ( $idGame );
         return $this->twig->render('Elevator/elevator.html.twig', ['player' => $newPlayer]);
     }
@@ -168,16 +169,18 @@ class GameController extends AbstractController
                 return $this->twig->render ( 'Elevator/elevator.html.twig', ['errors' => $errors] );
             } else {
                 $gameManager = new GameManager();
-                $character = [
+                $update = [
+                    'id' => $_POST['id'],
+                    'max_floor' => $_POST['max_floor'],
                     'strength' => $_POST['strength'],
                     'energy' => $_POST['energy'],
                     'humor' => $_POST['humor'],
                     'agility' => $_POST['agility'],
                 ];
-                $id = $gameManager->levelUp ( $character );
+                $id = $gameManager->levelUp ( $update );
                 header ( "Location:/game/event/$id" );
             }
         }
-        return $this->twig->render ( 'Character/character.html.twig');
+        return $this->twig->render ( 'Elevator/elevator.html.twig');
     }
 }

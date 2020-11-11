@@ -4,15 +4,15 @@
 
 {% block content %}
     <div class="elevatorFrame">
-        <h1>{{ player.max_floor}} ^</h1>
+        <h1>{{ player.max_floor }} ^</h1>
         <div class="elevatorPage">
-            <form action="" method="post">
+            <form action="/game/nextFloor" method="post">
                 <div class="imageUploader">
-                    <div class="frameBackgroundElevator{{ player.max_floor}}">
+                    <div class="frameBackgroundElevator{{ player.max_floor }}">
                         <img class="avatarElevator" id="output" src="/assets/images/characters/{{ player.image }}" alt="player avatar">
                     </div>
                     <div class="namePlateElevator">
-                        <img class="medal" src="/assets/images/icones/employeeOf{{ player.max_floor}}.png">
+                        <img class="medal" src="/assets/images/icones/employeeOf{{ player.max_floor }}.png">
                         <h2>{{ player.name }}</h2>
                     </div>
                 </div>
