@@ -475,6 +475,15 @@ input[type=number] {
     border: solid #a76e51 3px;
 }
 
+.elevatorErrorTittle {
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 1.7em;
+    color: #cf3434;
+    text-align: center;
+    width: 40%;
+    background: #1f1e1e;
+}
+
 .elevatorStatsArea {
     display: flex;
     flex-direction: row;

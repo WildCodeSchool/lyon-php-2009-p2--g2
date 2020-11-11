@@ -14,7 +14,6 @@ use App\Model\EventManager;
 use App\Model\GameEventManager;
 use App\Model\GameManager;
 use App\Model\ItemManager;
-use App\Model\AbstractManager;
 
 /**
  * Class GameController
@@ -84,14 +83,20 @@ class GameController extends AbstractController
                     'agility' => $_POST['agility'],
                 ];
                 $id = $gameManager->newGame ( $character );
-                header ( "Location:/game/event/$id" );
+                header ( "Location:/game/elevator/$id" );
             }
-        } else {
-            $errors['emptyFile'] = "You need to upload an avatar in order to play";
-            return $this->twig->render ( 'Character/character.html.twig', ['errors' => $errors] );
         }
+        $errors['emptyFile'] = "You need to upload an avatar in order to play";
+        return $this->twig->render ( 'Character/character.html.twig', ['errors' => $errors] );
     }
 
+    /**
+     * @param $idGame
+     * @return string
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
     public function event($idGame)
     {
         $game = new GameManager();
@@ -132,10 +137,47 @@ class GameController extends AbstractController
         }
     }
 
+    /**
+     * @param $idGame
+     * @return string
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
     public function elevator($idGame)
     {
         $game = new GameManager();
         $newPlayer = $game->selectOneById ( $idGame );
         return $this->twig->render('Elevator/elevator.html.twig', ['player' => $newPlayer]);
+    }
+
+    /**
+     * @return string
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
+    public function nextFloor()
+    {
+        $errors = [];
+        if (isset( $_POST ) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+            if ($_POST['strength'] > 2 || $_POST['energy'] > 2 || $_POST['humor'] > 2 || $_POST['agility'] > 2) {
+                $errors['stats'] = "Apparently you're trying to set more points than awarded...";
+            }
+            if (!empty( $errors )) {
+                return $this->twig->render ( 'Elevator/elevator.html.twig', ['errors' => $errors] );
+            } else {
+                $gameManager = new GameManager();
+                $character = [
+                    'strength' => $_POST['strength'],
+                    'energy' => $_POST['energy'],
+                    'humor' => $_POST['humor'],
+                    'agility' => $_POST['agility'],
+                ];
+                $id = $gameManager->levelUp ( $character );
+                header ( "Location:/game/event/$id" );
+            }
+        }
+        return $this->twig->render ( 'Character/character.html.twig');
     }
 }
