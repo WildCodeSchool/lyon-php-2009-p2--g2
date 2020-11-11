@@ -178,7 +178,7 @@ class GameController extends AbstractController
                     'agility' => $_POST['agility'],
                 ];
                 $id = $gameManager->levelUp ( $update );
-                header ( "Location:/game/event/$id" );
+                header ( "refresh:3;url=/game/event/$id" );
             }
         }
         return $this->twig->render ( 'Elevator/elevator.html.twig');

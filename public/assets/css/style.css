@@ -367,6 +367,30 @@ input[type=number] {
     width: 80%;
 }
 
+.door {
+    width: 50%;
+    height: 100%;
+    top: 0;
+    position: absolute;
+    transition: all 300ms ease-in;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.door#leftDoor {
+    left: 0;
+    background-image: url("../images/background/leftDoor.jpg");
+}
+.door#rightDoor {
+    right: 0;
+    background-image: url("../images/background/rightDoor.jpg");
+}
+.active-right {
+    right: -50% !important;
+}
+.active-left {
+    left: -50% !important;
+}
+
 .namePlateElevator {
     margin-top: -10px;
     width: 60%;
@@ -389,6 +413,7 @@ input[type=number] {
     position: absolute;
     margin-top: -30px;
     margin-left: 70px;
+    visibility: hidden;
 }
 
 .avatarElevator {

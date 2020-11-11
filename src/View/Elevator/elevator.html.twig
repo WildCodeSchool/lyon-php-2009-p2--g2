@@ -6,6 +6,8 @@
     <div class="elevatorFrame">
         <h1>{{ player.max_floor }} ^</h1>
         <div class="elevatorPage">
+            <div class="door" id="leftDoor"></div>
+            <div class="door" id="rightDoor"></div>
             <form action="/game/nextFloor" method="post">
                 <div class="imageUploader">
                     <div class="frameBackgroundElevator{{ player.max_floor }}">
