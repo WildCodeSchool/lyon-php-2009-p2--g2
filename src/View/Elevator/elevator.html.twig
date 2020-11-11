@@ -12,10 +12,13 @@
                         <img class="avatarElevator" id="output" src="/assets/images/characters/{{ player.image }}" alt="player avatar">
                     </div>
                     <div class="namePlateElevator">
+                        <img class="medal" src="/assets/images/icones/employeeOf{{ player.max_floor}}.png">
                         <h2>{{ player.name }}</h2>
                     </div>
                 </div>
+                <div class="statPage">
                 {% include 'Elevator/stats.html.twig' %}
+                </div>
                 <div class="buttonCenter">
                     <button type="submit" class="fightButton">Next ! <img class="buttonLogo" src="/assets/images/icones/fight.png" alt="fighting spirited person"> </button>
                 </div>

@@ -6,6 +6,10 @@
 *
 */
 
+.navbar {
+    margin-bottom: 0px;
+}
+
 .flexbox-container {
     display: flex;
     justify-content: space-around;
@@ -182,18 +186,19 @@ th {
     font-size: 24px;
     text-align: center;
     color: #fff;
-    background-color: #4CAF50;
+    background-color: #62a2b5;
     border: none;
     border-radius: 15px;
-    box-shadow: 0 9px #6695a9;
+    box-shadow: 0 9px #527888;
     margin-bottom: 50px;
 }
 
-.fightButton:hover {background-color: #3e8e41}
+.fightButton:hover {background-color: #3e6772
+}
 
 .fightButton:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px #686f96;
+    background-color: #3e6772;
+    box-shadow: 0 5px #353a4c;
     transform: translateY(4px);
 }
 
@@ -253,21 +258,28 @@ th {
     height: 100%;
 }
 
+.statInfos h3 {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-top: 5px;
+}
+
 .statIcon {
     max-width: 90%;
-    max-height: 90%;
+    max-height: 80%;
     display: inline-block;
 }
 
 .statInput {
     border: none;
     width: 90%;
-    height: 25%;
+    height: 20%;
     text-align: center;
     font-weight: bold;
     font-size: 1.2em;
     cursor: default;
     margin-top: 10px;
+    border-radius: 10px;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -287,21 +299,21 @@ input[type=number] {
 }
 
 .statButton {
-    width: 90%;
-    height: 90%;
-    font-size: 5em;
+    font-size: 30px;
     text-align: center;
     cursor: pointer;
     user-select: none;
+    width: 70px;
+    padding: 10px;
 }
 
 .buttonPlus {
-    background-color: #62b562;
+    background-color: #62a2b5;
     border-radius: 10px 10px 0 0;
 }
 
 .buttonMinus {
-    background-color: #b04e4e;
+    background-color: #281111;
     border-radius: 0 0 10px 10px;
     color: aliceblue;
 }
@@ -337,13 +349,14 @@ input[type=number] {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     font-family: Impact, Charcoal, sans-serif;
     width: 30%;
     height: 44px;
 }
 
 .elevatorPage {
+    margin-left: 10px;
     padding-top: 30px;
     text-align: center;
     background-image: url("../images/background/elevator.jpg");
@@ -367,6 +380,14 @@ input[type=number] {
 .namePlateElevator h2 {
     font-weight: bold;
     font-size: 2em;
+}
+
+.medal {
+    max-height: 100px;
+    max-width: 100px;
+    position: absolute;
+    margin-top: -30px;
+    margin-left: 70px;
 }
 
 .avatarElevator {
@@ -435,32 +456,43 @@ input[type=number] {
 *
 */
 
-.elevatorstatTittle {
-    margin-top: 50px;
-    font-size: 2.2em;
-    text-align: center;
-    width: 100%;
-    background: linear-gradient(to right, #a5535500 5%, azure 15%, azure, azure 85%, #a5535500 95%);
-    padding: 10px;
-    color: #1f1e1e;
-    text-shadow: 1px 1px 5px white;
+.statPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.elevatorcharacterStatsArea {
+.elevatorstatTittle {
+    font-family: Impact, Charcoal, sans-serif;
+    margin-top: 20px;
+    font-size: 1.7em;
+    color: #cf3434;
+    text-align: center;
+    width: 40%;
+    background: #1f1e1e;
+    padding: 5px;
+    border: solid #a76e51 3px;
+}
+
+.elevatorStatsArea {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .elevatorstatContainer {
     display: flex;
-    flex-direction: row;
-    width: 45%;
-    height: 200px;
-    margin: 10px;
-    background-color: azure;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    background-color: #091010;
     border-radius: 10px;
+    border: solid #a76e51 3px;
 }
 
 .elevatorstatColumn {
@@ -468,12 +500,19 @@ input[type=number] {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%;
 }
 
 .elevatorstatInfos {
-    width: 90%;
-    height: 100%;
+    width: 95%;
+    height: 75%;
+}
+
+.elevatorstatInfos h3 {
+    color: #cf3434;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-top: 5px;
 }
 
 .elevatorstatIcon {
@@ -485,34 +524,33 @@ input[type=number] {
 .elevatorstatInput {
     border: none;
     width: 90%;
-    height: 25%;
     text-align: center;
     font-weight: bold;
     font-size: 1.2em;
     cursor: default;
-    margin-top: 10px;
-}
-
-.elevatorstatButtonContainer {
-    width: 90%;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    margin-top: 5px;
 }
 
 .elevatorstatButton {
-    width: 90%;
-    height: 90%;
-    font-size: 5em;
+    font-size: 40px;
     text-align: center;
     cursor: pointer;
     user-select: none;
+    width: 70px;
+    padding: 5px;
+    border: solid #a76e51 1px;
 }
 
 .elevatorbuttonPlus {
-    background-color: #62b562;
+    background-color: #62a2b5;
     border-radius: 10px 10px 0 0;
 }
 
 .elevatorbuttonMinus {
-    background-color: #b04e4e;
+    background-color: #3b1818;
     border-radius: 0 0 10px 10px;
     color: aliceblue;
+    margin-bottom: 10px;
 }
