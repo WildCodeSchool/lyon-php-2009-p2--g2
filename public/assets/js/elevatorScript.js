@@ -135,6 +135,7 @@ agilityMinus.addEventListener("click", function()
 const leftDoor = document.querySelector("#leftDoor");
 const rightDoor = document.querySelector("#rightDoor");
 const medal = document.querySelector(".medal");
+const next = document.querySelector(".fightButton");
 
 rightDoor.addEventListener("click", function()
     {
@@ -149,5 +150,15 @@ leftDoor.addEventListener("click", function()
         rightDoor.classList.add("active-right");
         leftDoor.classList.add("active-left");
         medal.style.visibility = "visible";
+    }
+);
+
+next.addEventListener("click", function()
+    {
+        rightDoor.classList.remove("active-right");
+        leftDoor.classList.remove("active-left");
+        medal.style.visibility = "hidden";
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
     }
 );
