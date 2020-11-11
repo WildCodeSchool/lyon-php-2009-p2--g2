@@ -183,4 +183,13 @@ class GameController extends AbstractController
         }
         return $this->twig->render ( 'Elevator/elevator.html.twig');
     }
+    
+    public function menu()
+    {
+        $gameManager = new gameManager();
+        $id = 1;
+        $isEnded = $gameManager->isEnded($id);
+
+        return $this->twig->render('Game/menu.html.twig', ['is_ended' => $isEnded]);
+    }
 }
