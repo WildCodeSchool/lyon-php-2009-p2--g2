@@ -1,13 +1,17 @@
 {% extends 'layout.html.twig' %}
 
-    {% block content %}
+{% block title %}Menu{% endblock %}
+
+{% block content %}
+    <div class="menuPage">
         <div class="flexbox-container" id="fbc3">
-            <div id="main-btn" class="btn-group-vertical">
-                <a href="createCharacter" type="button" class="btn btn-secondary">New game</a>
+            <div id="main-btn" class="menuContainer">
+                <a href="createCharacter" type="button" class="fightButton menuButton">New game</a>
                 {% if is_ended == false %}
-                <a href="#" type="button" class="btn btn-secondary">Resume game</a>
+                <a href="#" type="button" class="fightButton menuButton">Resume game</a>
                 {% endif %}
-                <a href="#" type="button" class="btn btn-secondary">Score</a>
+                <a href="#" type="button" class="fightButton menuButton">Score</a>
             </div>
         </div>
-    {% endblock %}
+    </div>
+{% endblock %}

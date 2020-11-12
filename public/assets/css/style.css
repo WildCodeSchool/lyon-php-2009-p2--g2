@@ -34,6 +34,37 @@
 /*
 *
 * ==========================================
+* Menu Page
+* ==========================================
+*
+*/
+
+.menuPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../images/background/menu.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.menuContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menuButton:hover {
+    text-decoration: none;
+    color : white;
+}
+
+/*
+*
+* ==========================================
 * event page style
 * ==========================================
 *
