@@ -8,7 +8,7 @@
         <div class="elevatorPage">
             <div class="door" id="leftDoor"></div>
             <div class="door" id="rightDoor"></div>
-            <form action="/game/nextFloor" method="post">
+            <form action="/game/nextFloor" method="post" id="elevatorForm">
                 <div class="imageUploader">
                     <div class="frameBackgroundElevator{{ player.max_floor }}">
                         <img class="avatarElevator" id="output" src="/assets/images/characters/{{ player.image }}" alt="player avatar">
@@ -22,7 +22,7 @@
                 {% include 'Elevator/stats.html.twig' %}
                 </div>
                 <div class="buttonCenter">
-                    <button type="submit" class="fightButton">Next ! <img class="buttonLogo" src="/assets/images/icones/fight.png" alt="fighting spirited person"> </button>
+                    <button type="button" class="fightButton">Next ! <img class="buttonLogo" src="/assets/images/icones/fight.png" alt="fighting spirited person"> </button>
                 </div>
             </form>
         </div>

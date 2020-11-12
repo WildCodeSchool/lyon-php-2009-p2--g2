@@ -160,5 +160,7 @@ next.addEventListener("click", function()
         medal.style.visibility = "hidden";
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
+        setTimeout(function()
+        { document.querySelector("#elevatorForm").submit(); }, 800);
     }
 );
