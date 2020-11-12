@@ -32,15 +32,15 @@ let agility = 0;
 //Value selector
 
 const remainingPointsValue = document.querySelector("#remainingPoints");
-const strenghtValue = document.querySelector("#strength");
+const strengthValue = document.querySelector("#strength");
 const energyValue = document.querySelector("#energy");
 const humorValue = document.querySelector("#humor");
 const agilityValue = document.querySelector("#agility");
 
 //+ and - selector
 
-const strenghtPlus = document.querySelector("#strengthPlus");
-const strenghtMinus = document.querySelector("#strengthMinus");
+const strengthPlus = document.querySelector("#strengthPlus");
+const strengthMinus = document.querySelector("#strengthMinus");
 const energyPlus = document.querySelector("#energyPlus");
 const energyMinus = document.querySelector("#energyMinus");
 const humorPlus = document.querySelector("#humorPlus");
@@ -48,29 +48,29 @@ const humorMinus = document.querySelector("#humorMinus");
 const agilityPlus = document.querySelector("#agilityPlus");
 const agilityMinus = document.querySelector("#agilityMinus");
 
-strenghtValue.value = strength;
+strengthValue.value = strength;
 energyValue.value = energy;
 humorValue.value = humor;
 agilityValue.value = agility;
 remainingPointsValue.textContent = remainingPoints;
 
-strenghtPlus.addEventListener("click", function()
+strengthPlus.addEventListener("click", function()
     {
         if (remainingPoints > 0) {
             strength++;
             remainingPoints--;
-            strenghtValue.value = strength;
+            strengthValue.value = strength;
             remainingPointsValue.textContent = remainingPoints;
         }
     }
 );
 
-strenghtMinus.addEventListener("click", function()
+strengthMinus.addEventListener("click", function()
     {
         if (remainingPoints < maxRemainingPoints && strength !== 0) {
             strength--;
             remainingPoints++;
-            strenghtValue.value = strength;
+            strengthValue.value = strength;
             remainingPointsValue.textContent = remainingPoints;
         }
     }
