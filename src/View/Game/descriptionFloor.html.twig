@@ -1,0 +1,31 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheet %}{% endblock %}
+
+{% block title %}
+    Floor {{ game.max_floor }} Description
+{% endblock %}
+
+{% block content %}
+    <div class="floorDescriptionPage">
+        <h1>Floor : {{ player.max_floor }}</h1>
+        <img src="/assets/images/floorDescription/floor{{ player.max_floor }}.png">
+        <form action="/game/event" method="post">
+            <input type="hidden" name="id" value="{{ player.id }}">
+            <input type="hidden" name="max_floor" value="{{ player.max_floor }}">
+            <div class="imageUploader">
+                <div class="frameBackgroundElevator{{ player.max_floor }}">
+                    <img class="avatarElevator" id="output" src="/assets/images/characters/{{ player.image }}" alt="player avatar">
+                </div>
+                <div class="namePlateElevator">
+                    <h2>{{ player.name }}</h2>
+                </div>
+            </div>
+            <div class="buttonCenter">
+                <button type="button" class="fightButton">Seems EZ !<img class="buttonLogo" src="/assets/images/icones/fight.png" alt="fighting spirited person"> </button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block javascript %}{% endblock %}
