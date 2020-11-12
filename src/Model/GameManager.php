@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: sylvain
@@ -18,7 +19,7 @@ class GameManager extends AbstractManager
     /**
      *
      */
-    const TABLE = 'game';
+    private const TABLE = 'game';
 
     /**
      *  Initializes this class.
@@ -47,5 +48,29 @@ class GameManager extends AbstractManager
         if ($statement->execute()) {
             return (int)$this->pdo->lastInsertId();
         }
+    }
+    public function killPlayer($idGame)
+    {
+        //UPDATE game SET is_ended = 0 WHERE id = 3;
+         $this->pdo->exec("UPDATE " . self::TABLE . " SET is_ended = 1 WHERE id = " . $idGame);
+    }
+    public function changeFloor($idGame, $floor)
+    {
+        $this->pdo->exec("UPDATE " . self::TABLE . " SET max_floor = " . $floor . " WHERE id = " . $idGame);
+    }
+    public function updatePlayerEvent($countEvent, $idGame)
+    {
+        $this->pdo->exec("UPDATE " . self::TABLE . " SET event_count = " . $countEvent . " WHERE id = " . $idGame);
+    }
+    public function countPlayerEvents($idGame)
+    {
+        //select count(*) as events from event e inner join  game_has_event ge on ge.event_id = e.id
+        //where  e.floor_restriction = 1 and ge.game_id = 3;
+        $query = "SELECT event_count FROM " .  self::TABLE;
+        $query .= " WHERE id = :idGame";
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue(':idGame', $idGame, \PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetch();
     }
 }
