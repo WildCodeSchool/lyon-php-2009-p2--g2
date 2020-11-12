@@ -8,21 +8,31 @@
 
 {% block content %}
     <div class="floorDescriptionPage">
-        <h1>Floor : {{ player.max_floor }}</h1>
-        <img src="/assets/images/floorDescription/floor{{ player.max_floor }}.png">
-        <form action="/game/event" method="post">
-            <input type="hidden" name="id" value="{{ player.id }}">
-            <input type="hidden" name="max_floor" value="{{ player.max_floor }}">
+        <h1>Floor : {{ game.max_floor }}</h1>
+        <div class="floorDescriptionContainer">
+            <img src="/assets/images/floorDescription/floor{{ game.max_floor }}.png">
+            {% if game.max_floor == 1 %}
+                <p class="floorDescriptionText">Welcome in your new office young Dev ! <br> You'll see, we are a well organised team ! <br> There just some... <br> Events that occurs... <br> Sometime... <br> ... <br> Anyway ! Welcome {{ game.name }} !</p>
+            {% endif %}
+            {% if game.max_floor == 2 %}
+                <p class="floorDescriptionText">Great ! So you manage to make it to week two ! <br> With honor if I may say so. <br> So keep it like that {{ game.name }} and you may surviv... get to the first month here !</p>
+            {% endif %}
+            {% if game.max_floor == 3 %}
+                <p class="floorDescriptionText">Ohohoh, an entire month Eh ? <br> You're far less useless than I'd imagine after all... <br> Ok, let's see how far you can go {{ game.name }} !</p>
+            {% endif %}
+            {% if game.max_floor == 4 %}
+                <p class="floorDescriptionText">What can I say... {{ game.name }} you may become my boss !<br> Just go and show them !</p>
+            {% endif %}
+        </div>
+        <form action="/game/firstFloorEvent" method="post">
+            <input type="hidden" name="id" value="{{ game.id }}">
             <div class="imageUploader">
-                <div class="frameBackgroundElevator{{ player.max_floor }}">
-                    <img class="avatarElevator" id="output" src="/assets/images/characters/{{ player.image }}" alt="player avatar">
-                </div>
-                <div class="namePlateElevator">
-                    <h2>{{ player.name }}</h2>
+                <div class="frameBackgroundElevator{{ game.max_floor }}">
+                    <img class="avatarElevator" id="output" src="/assets/images/characters/{{ game.image }}" alt="player avatar">
                 </div>
             </div>
             <div class="buttonCenter">
-                <button type="button" class="fightButton">Seems EZ !<img class="buttonLogo" src="/assets/images/icones/fight.png" alt="fighting spirited person"> </button>
+                <button type="submit" class="fightButton">Seems EZ !<img class="buttonLogo" src="/assets/images/icones/fight.png" alt="fighting spirited person"> </button>
             </div>
         </form>
     </div>

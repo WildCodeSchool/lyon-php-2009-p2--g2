@@ -83,7 +83,7 @@ class GameController extends AbstractController
                     'agility' => $_POST['agility'],
                 ];
                 $id = $gameManager->newGame ( $character );
-                header ( "Location:/game/elevator/$id" );
+                header ( "Location:/game/floorDescription/$id" );
             }
         }
         $errors['emptyFile'] = "You need to upload an avatar in order to play";
@@ -178,7 +178,7 @@ class GameController extends AbstractController
                     'agility' => $_POST['agility'],
                 ];
                 $id = $gameManager->levelUp ( $update );
-                header ( "Location:/game/event/$id" );
+                header ( "Location:/game/floorDescription/$id" );
             }
         }
         return $this->twig->render ( 'Elevator/elevator.html.twig');
@@ -303,5 +303,18 @@ class GameController extends AbstractController
                 break;
         }
         return $power;
+    }
+
+    public function floorDescription($id)
+    {
+        $game = new GameManager();
+        $player = $game->selectOneById ($id);
+        return $this->twig->render ( 'Game/descriptionFloor.html.twig', ['game' => $player] );
+    }
+
+    public function firstFloorEvent()
+    {
+        $id = $_POST['id'];
+        header ( "Location:/game/event/$id" );
     }
 }
