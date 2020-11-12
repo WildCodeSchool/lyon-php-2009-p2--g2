@@ -626,11 +626,25 @@ input[type=number] {
 .elevatorbuttonPlus {
     background-color: #62a2b5;
     border-radius: 10px 10px 0 0;
+    box-shadow: 0 9px #527888;
 }
 
 .elevatorbuttonMinus {
     background-color: #3b1818;
     border-radius: 0 0 10px 10px;
+    box-shadow: 0 9px #000000;
     color: aliceblue;
     margin-bottom: 10px;
+}
+
+.elevatorbuttonPlus:active {
+    background-color: #527888;
+    box-shadow: 0 5px #0a0d11;
+    transform: translateY(4px);
+}
+
+.elevatorbuttonMinus:active {
+    background-color: #180d0d;
+    box-shadow: 0 5px #353a4c;
+    transform: translateY(4px);
 }
