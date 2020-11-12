@@ -144,14 +144,12 @@ class GameController extends AbstractController
             $power = $this->takeAction($action['action']);
             //Compares the power of the event with the power of the player
             if ($player[$power] >= $event[$power]) {
-                echo "se ele ganhou: <br>";
                 //If he won:
                 //check how many events he did in this floor
                 $arrayCountEvents  = $newPlayer->countPlayerEvents($player['id']);
                 $countEvents = (int)$arrayCountEvents['event_count'];
                 //if the player has 1 or 2 events
                 if ($countEvents == 0 || $countEvents == 1) {
-                    echo "se ele tem 0 ou 1 eventos <br>";
                     $countEvents += 1;
                     //records the new event in the database
                     $newGameEvent = new GameEventManager();
@@ -165,13 +163,11 @@ class GameController extends AbstractController
                     //Redirect the player to the victory page
                     return $this->twig->render('Game/victory.html.twig', ['game' => $player, 'item' => $playerItem]);
                 } else {
-                    echo 'se ele tem 2 eventos <br>';
                     //If he has 2 events:
                     //Registrar o evento no ascencer en questao
                     $newGameEvent = new GameEventManager();
                     $newGameEvent->insertGameEvent($player['id'], $player['user_id'], $event['id']);
                     if ($player['max_floor'] == 1 || $player['max_floor'] == 2) {
-                        echo 'se o elevador é igual a 1 ou 2';
                         //If he is on the first or second floor
                         $countEvents = 3;
                         //Update the event_count and floor
@@ -183,7 +179,6 @@ class GameController extends AbstractController
                         // Redirect to the elevator change page for the new elevator
                         return $this->twig->render('Game/floor.html.twig', ['game' => $player]);
                     } else {
-                        echo 'se o elevador é igual a 3';
                         //Update the event_count
                         $countEvents = 3;
                         $newPlayer->updatePlayerEvent($countEvents, $player['id']);
@@ -196,7 +191,6 @@ class GameController extends AbstractController
                     }
                 }
             } else {
-                echo 'se ele perdeu <br>';
                 //If he lost
                 //Insert into game (id_ended) values (true) where id = $idGame;
                 $newDied = new GameManager();
