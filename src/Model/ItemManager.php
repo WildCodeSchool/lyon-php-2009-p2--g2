@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: sylvain
@@ -11,8 +12,8 @@ namespace App\Model;
 
 class ItemManager extends AbstractManager
 {
-    const TABLE = 'item';
-    const TABLE2 = 'game_has_item';
+    private const TABLE = 'item';
+    private const TABLE2 = 'game_has_item';
     /**
      *  Initializes this class.
      */
@@ -47,7 +48,7 @@ class ItemManager extends AbstractManager
      * @param array $item
      * @return bool
      */
-    public function update(array $item):bool
+    public function update(array $item): bool
     {
         // prepared request
         $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET `title` = :title WHERE id=:id");
@@ -69,5 +70,27 @@ class ItemManager extends AbstractManager
         $statement->bindValue('game_id', $idGame, \PDO::PARAM_INT);
         $statement->execute();
         return $statement->fetchAll();
+    }
+    public function countItems($idGame)
+    {
+        // prepared request
+        //Select count(*) as items from game_has_item where game_id = $player['id']
+        $query = "SELECT COUNT(*) as items FROM " . self::TABLE2 . " WHERE game_id = :game_id";
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue('game_id', $idGame, \PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetch();
+    }
+    public function chooseRandomItem($idGame)
+    {
+        //SELECT * FROM item
+        //WHERE id NOT IN (SELECT item_id FROM game_has_item where game_id = 3)
+        // ORDER BY RAND() LIMIT 1;
+        $query = "SELECT * FROM " . self::TABLE . " WHERE id NOT IN (SELECT item_id FROM ";
+        $query .= self::TABLE2 . "WHERE game_id = :idGame) ORDER BY RAND() LIMIT 1";
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue('game_id', $idGame, \PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetch();
     }
 }

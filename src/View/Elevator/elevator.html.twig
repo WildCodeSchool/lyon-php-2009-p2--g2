@@ -1,0 +1,31 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Elevator{% endblock %}
+
+{% block content %}
+    <div class="elevatorFrame">
+        <h1>{{ player.max_floor }} ^</h1>
+        <div class="elevatorPage">
+            <div class="door" id="leftDoor"></div>
+            <div class="door" id="rightDoor"></div>
+            <form action="/game/nextFloor" method="post" id="elevatorForm">
+                <div class="imageUploader">
+                    <div class="frameBackgroundElevator{{ player.max_floor }}">
+                        <img class="avatarElevator" id="output" src="/upload/{{ player.image }}" alt="player avatar">
+                    </div>
+                    <div class="namePlateElevator">
+                        <img class="medal" src="/assets/images/icones/employeeOf{{ player.max_floor }}.png">
+                        <h2>{{ player.name }}</h2>
+                    </div>
+                </div>
+                <div class="statPage">
+                {% include 'Elevator/stats.html.twig' %}
+                </div>
+                <div class="buttonCenter">
+                    <button type="button" class="fightButton">Next ! <img class="buttonLogo" src="/assets/images/icones/fight.png" alt="fighting spirited person"> </button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %}<script src="/assets/js/elevatorScript.js"></script>{% endblock %}

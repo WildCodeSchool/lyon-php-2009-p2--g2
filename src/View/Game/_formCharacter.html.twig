@@ -2,14 +2,14 @@
     <div class="col-5">
         <div class="row">
             <div class="col-6 div-character">
-                <span class="text-power text-secondary">Str: {{ player.strength }}</span>
-                <span class="text-power text-secondary">Ene: {{ player.energy }}</span>
-                <span class="text-power power text-secondary">Hum: {{ player.humor }}</span>
-                <span class="text-power text-secondary">Agi: {{ player.agility }}</span>
+                <span class="text-power text-secondary">Str: {{ game.strength }}</span>
+                <span class="text-power text-secondary">Ene: {{ game.energy }}</span>
+                <span class="text-power power text-secondary">Hum: {{ game.humor }}</span>
+                <span class="text-power text-secondary">Agi: {{ game.agility }}</span>
             </div>
             <div class="col-6 div-power">
-                <div>{{ player.name }}</div>
-                <div><img class="image-character" src="/assets/images/characters/{{ player.image }}"></div>
+                <div>{{ game.name }}</div>
+                <div><img class="image-character" src="/upload/{{ game.image }}" alt="Character's avatar"></div>
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@
                               <img class="image-item" alt="{{ items[index].name }}" title="Str: {{ items[index].strength }}, Ene: {{ items[index].energy }}, Hum: {{ items[index].humor }}, Agi: {{ items[index].agility }}" src="{{ items[index].image }}">
                           </th>
                       {% else %}
-                          <th></th>
+                          <th> </th>
                       {% endif %}
                       {% set index = 1 + index %}
                   {% endfor %}
