@@ -37,7 +37,7 @@ class GameController extends AbstractController
      */
     public function createCharacter()
     {
-        return $this->twig->render ('Character/character.html.twig' );
+        return $this->twig->render('Character/character.html.twig' );
     }
 
     /**
