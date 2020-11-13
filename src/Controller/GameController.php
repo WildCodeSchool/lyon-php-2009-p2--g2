@@ -123,8 +123,8 @@ class GameController extends AbstractController
                 foreach ($this->events as $event) {
                     $arrayEvents[] = $event['id'];
                 }
-                $result = array_diff ( $arrayEvents, $arrayPlayerEvents );
-                $chooseEvent = $this->events[array_rand ( $result )];
+                $result = array_diff($arrayEvents, $arrayPlayerEvents);
+                $chooseEvent = $this->events[array_rand($result)];
             }
             $newItems = new ItemManager();
             $itemsPlayer = $newItems->selectAllPlayerItems($idGame);
@@ -316,6 +316,6 @@ class GameController extends AbstractController
     public function firstFloorEvent()
     {
         $id = $_POST['id'];
-        header ( "Location:/game/event/$id" );
+        header("Location:/game/event/$id");
     }
 }
