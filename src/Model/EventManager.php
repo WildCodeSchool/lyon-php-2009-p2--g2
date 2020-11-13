@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: sylvain
@@ -14,10 +15,8 @@ namespace App\Model;
  */
 class EventManager extends AbstractManager
 {
-    /**
-     *
-     */
-    const TABLE = 'event';
+    private const TABLE = 'event';
+    private const TABLE2 = 'game_has_event';
     /**
      *  Initializes this class.
      */

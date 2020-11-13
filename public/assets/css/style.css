@@ -6,6 +6,10 @@
 *
 */
 
+.navbar {
+    margin-bottom: 0px;
+}
+
 .flexbox-container {
     display: flex;
     justify-content: space-around;
@@ -25,6 +29,37 @@
 
 .btn-group-vertical>.btn {
     margin-bottom: 15px;
+}
+
+/*
+*
+* ==========================================
+* Menu Page
+* ==========================================
+*
+*/
+
+.menuPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../images/background/menu.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.menuContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menuButton:hover {
+    text-decoration: none;
+    color : white;
 }
 
 /*
@@ -101,6 +136,7 @@ th {
     background-image: url("../images/background/backgroundOffice.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
+    margin-top: -20px;
 }
 
 .characterPage h1 {
@@ -115,16 +151,17 @@ th {
     width: 60%;
     max-width: 350px;
     height: 100px;
-    padding: 50px;
-    background-image: url("../images/characters/namePlate.png");
+    background-image: url("../images/background/namePlate.png");
     background-repeat: no-repeat;
     background-size: 100% 100px;
     text-align: center;
+    padding-left: 25px;
 }
 
 .nameInput {
     text-align: center;
     height: 50px;
+    width: 250px;
     font-size: 1.7em;
     font-weight: bold;
     background: none;
@@ -152,7 +189,6 @@ th {
     height: 300px;
     width: 300px;
     border-radius: 5px;
-    border-image: url("../images/characters/cadre.png") 10;
 }
 
 .frameBackground {
@@ -160,12 +196,12 @@ th {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url("../images/characters/frame.png");
-    height: 390px;
-    width: 390px;
+    background-image: url("../images/background/frame1.png");
+    height: 380px;
+    width: 380px;
     background-repeat: no-repeat;
     background-size: cover;
-    background-size: 390px 390px;
+    background-size: 380px 380px;
 }
 
 .buttonCenter {
@@ -182,18 +218,19 @@ th {
     font-size: 24px;
     text-align: center;
     color: #fff;
-    background-color: #4CAF50;
+    background-color: #62a2b5;
     border: none;
     border-radius: 15px;
-    box-shadow: 0 9px #6695a9;
+    box-shadow: 0 9px #527888;
     margin-bottom: 50px;
 }
 
-.fightButton:hover {background-color: #3e8e41}
+.fightButton:hover {background-color: #3e6772
+}
 
 .fightButton:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px #686f96;
+    background-color: #3e6772;
+    box-shadow: 0 5px #353a4c;
     transform: translateY(4px);
 }
 
@@ -253,21 +290,28 @@ th {
     height: 100%;
 }
 
+.statInfos h3 {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-top: 5px;
+}
+
 .statIcon {
     max-width: 90%;
-    max-height: 90%;
+    max-height: 80%;
     display: inline-block;
 }
 
 .statInput {
     border: none;
     width: 90%;
-    height: 25%;
+    height: 20%;
     text-align: center;
     font-weight: bold;
     font-size: 1.2em;
     cursor: default;
     margin-top: 10px;
+    border-radius: 10px;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -287,21 +331,366 @@ input[type=number] {
 }
 
 .statButton {
-    width: 90%;
-    height: 90%;
-    font-size: 5em;
+    font-size: 30px;
     text-align: center;
     cursor: pointer;
     user-select: none;
+    width: 70px;
+    padding: 10px;
 }
 
 .buttonPlus {
-    background-color: #62b562;
+    background-color: #62a2b5;
     border-radius: 10px 10px 0 0;
+    box-shadow: 0 9px #527888;
 }
 
 .buttonMinus {
-    background-color: #b04e4e;
+    background-color: #281111;
     border-radius: 0 0 10px 10px;
+    box-shadow: 0 9px #000000;
     color: aliceblue;
+}
+
+.buttonPlus:active {
+    background-color: #527888;
+    box-shadow: 0 5px #0a0d11;
+    transform: translateY(4px);
+}
+
+.buttonMinus:active {
+    background-color: #180d0d;
+    box-shadow: 0 5px #353a4c;
+    transform: translateY(4px);
+}
+
+/*
+*
+* ==========================================
+* Elevator style
+* ==========================================
+*
+*/
+
+.elevatorFrame {
+    background-image: url("../images/background/doorsFrame.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.elevatorFrame h1 {
+    font-size: 2em;
+    padding-top: 7px;
+    color: #cf3434;
+    margin-top: 5px;
+    text-align: center;
+    background-image: url("../images/background/elevatorFloorIndicator.png");
+    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 30px;
+    font-family: Impact, Charcoal, sans-serif;
+    width: 30%;
+    height: 44px;
+}
+
+.elevatorPage {
+    margin-left: 10px;
+    padding-top: 30px;
+    text-align: center;
+    background-image: url("../images/background/elevator.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 80%;
+}
+
+.door {
+    width: 50%;
+    height: 100%;
+    top: 0;
+    position: absolute;
+    transition: all 300ms ease-in;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.door#leftDoor {
+    left: 0;
+    background-image: url("../images/background/leftDoor.jpg");
+}
+.door#rightDoor {
+    right: 0;
+    background-image: url("../images/background/rightDoor.jpg");
+}
+.active-right {
+    right: -50% !important;
+}
+.active-left {
+    left: -50% !important;
+}
+
+.namePlateElevator {
+    margin-top: -10px;
+    width: 60%;
+    max-width: 230px;
+    height: 100px;
+    background-image: url("../images/background/namePlate.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100px;
+    text-align: center;
+}
+
+.namePlateElevator h2 {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.medal {
+    max-height: 100px;
+    max-width: 100px;
+    position: absolute;
+    margin-top: -30px;
+    margin-left: 70px;
+    visibility: hidden;
+}
+
+.avatarElevator {
+    height: 200px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+.frameBackgroundElevator1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/background/frame1.png");
+    height: 250px;
+    width: 250px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 250px 250px;
+}
+
+.frameBackgroundElevator2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/background/frame2.png");
+    height: 250px;
+    width: 250px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 250px 250px;
+}
+
+.frameBackgroundElevator3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/background/frame3.png");
+    height: 250px;
+    width: 250px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 250px 250px;
+}
+
+.frameBackgroundElevator4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/background/frame4.png");
+    height: 250px;
+    width: 250px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 250px 250px;
+}
+
+/*
+*
+* ==========================================
+* Elevator point attribution fields
+* ==========================================
+*
+*/
+
+.statPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.elevatorstatTittle {
+    font-family: Impact, Charcoal, sans-serif;
+    margin-top: 20px;
+    font-size: 1.7em;
+    color: #cf3434;
+    text-align: center;
+    width: 40%;
+    background: #1f1e1e;
+    padding: 5px;
+    border: solid #a76e51 3px;
+}
+
+.elevatorErrorTittle {
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 1.7em;
+    color: #cf3434;
+    text-align: center;
+    width: 40%;
+    background: #1f1e1e;
+}
+
+.elevatorStatsArea {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.elevatorstatContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    background-color: #091010;
+    border-radius: 10px;
+    border: solid #a76e51 3px;
+}
+
+.elevatorstatColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.elevatorstatInfos {
+    width: 95%;
+    height: 75%;
+}
+
+.elevatorstatInfos h3 {
+    color: #cf3434;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-top: 5px;
+}
+
+.elevatorstatIcon {
+    max-width: 90%;
+    max-height: 90%;
+    display: inline-block;
+}
+
+.elevatorstatInput {
+    border: none;
+    width: 90%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    cursor: default;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    margin-top: 5px;
+}
+
+.elevatorstatButton {
+    font-size: 40px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    width: 70px;
+    padding: 5px;
+    border: solid #a76e51 1px;
+}
+
+.elevatorbuttonPlus {
+    background-color: #62a2b5;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 9px #527888;
+}
+
+.elevatorbuttonMinus {
+    background-color: #3b1818;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 9px #000000;
+    color: aliceblue;
+    margin-bottom: 10px;
+}
+
+.elevatorbuttonPlus:active {
+    background-color: #527888;
+    box-shadow: 0 5px #0a0d11;
+    transform: translateY(4px);
+}
+
+.elevatorbuttonMinus:active {
+    background-color: #180d0d;
+    box-shadow: 0 5px #353a4c;
+    transform: translateY(4px);
+}
+
+/*
+*
+* ==========================================
+* Floor Description Page
+* ==========================================
+*
+*/
+
+.floorDescriptionPage {
+    text-align: center;
+    background-image: url("../images/background/backgroundOffice.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.floorDescriptionPage h1 {
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 4em;
+    color: azure;
+    padding: 10px;
+    width: 100%;
+    background-color: #527888ee;
+    box-shadow: 0 5px #353a4cee;
+}
+
+.floorDescriptionContainer {
+    width: 90%;
+    margin-bottom: 30px;
+}
+
+.floorPicture {
+    width: 100%;
+}
+
+.floorDescriptionText {
+    color: azure;
+    background-color: #527888ee;
+    box-shadow: 0 5px #353a4cee;
+    font-size: 2em;
 }
