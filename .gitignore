@@ -1,5 +1,5 @@
 /vendor/
-/public/assets/images/characters/
+/public/assets/upload/
 /temp/*
 .phpcs-cache
 *.cache
