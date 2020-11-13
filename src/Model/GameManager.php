@@ -69,7 +69,7 @@ class GameManager extends AbstractManager
         $statement->bindValue ( ':max_floor', ($update['max_floor'] + 1), \PDO::PARAM_INT );
         $statement->bindValue ( ':save', date ( "Y-m-d H:i:s" ), \PDO::PARAM_STR );
 
-        if ($statement->execute ()) {
+        if ($statement->execute()) {
             return $update['id'];
         }
     }

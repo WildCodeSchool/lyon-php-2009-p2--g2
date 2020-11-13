@@ -37,7 +37,7 @@ class GameController extends AbstractController
      */
     public function createCharacter()
     {
-        return $this->twig->render ( 'Character/character.html.twig' );
+        return $this->twig->render ('Character/character.html.twig' );
     }
 
     /**
@@ -82,12 +82,12 @@ class GameController extends AbstractController
                     'humor' => $_POST['humor'],
                     'agility' => $_POST['agility'],
                 ];
-                $id = $gameManager->newGame ( $character );
+                $id = $gameManager->newGame($character);
                 header ( "Location:/game/floorDescription/$id" );
             }
         }
         $errors['emptyFile'] = "You need to upload an avatar in order to play";
-        return $this->twig->render ( 'Character/character.html.twig', ['errors' => $errors] );
+        return $this->twig->render('Character/character.html.twig', ['errors' => $errors]);
     }
 
     /**
@@ -100,23 +100,23 @@ class GameController extends AbstractController
     public function event($idGame)
     {
         $game = new GameManager();
-        $newPlayer = $game->selectOneById ( $idGame );
-        if (!empty( $newPlayer['max_floor'] )) {
+        $newPlayer = $game->selectOneById($idGame);
+        if (!empty($newPlayer['max_floor'])) {
             //Take the game floor to know wich events put in array events.
             $floor = $newPlayer['max_floor'];
             $newEvent = new EventManager();
             //Take all events by floor
-            $this->events = $newEvent->selectAllEvents ( $floor );
+            $this->events = $newEvent->selectAllEvents($floor);
             //Take the events made by floor in game_has_event
             $newGameEvent = new GameEventManager();
 
-            $playerEvents = $newGameEvent->selectAllGameEvents ( $idGame );
+            $playerEvents = $newGameEvent->selectAllGameEvents($idGame);
             $arrayPlayerEvents = [];
             $arrayEvents = [];
             $chooseEvent = [];
-            if (count ( $playerEvents ) === 0) {
-                $chooseEvent = $this->events[array_rand ( $this->events )];
-            } elseif (count ( $playerEvents ) >= 1) {
+            if (count($playerEvents) === 0) {
+                $chooseEvent = $this->events[array_rand($this->events)];
+            } elseif (count($playerEvents) >= 1) {
                 foreach ($playerEvents as $playerEvent) {
                     $arrayPlayerEvents[] = $playerEvent['event_id'];
                 }
@@ -127,11 +127,12 @@ class GameController extends AbstractController
                 $chooseEvent = $this->events[array_rand ( $result )];
             }
             $newItems = new ItemManager();
-            $itemsPlayer = $newItems->selectAllPlayerItems ( $idGame );
-            return $this->twig->render ( 'Game/event.html.twig', [
+            $itemsPlayer = $newItems->selectAllPlayerItems($idGame);
+            return $this->twig->render('Game/event.html.twig', [
                 'event' => $chooseEvent,
                 'game' => $newPlayer,
-                'items' => $itemsPlayer]);
+                'items' => $itemsPlayer],
+            );
         } else {
             echo 'Character doesnt exist!';
         }
@@ -147,8 +148,8 @@ class GameController extends AbstractController
     public function elevator($idGame)
     {
         $game = new GameManager();
-        $game->save ($idGame);
-        $newPlayer = $game->selectOneById ( $idGame );
+        $game->save($idGame);
+        $newPlayer = $game->selectOneById($idGame);
         return $this->twig->render('Elevator/elevator.html.twig', ['player' => $newPlayer]);
     }
 
@@ -166,7 +167,7 @@ class GameController extends AbstractController
                 $errors['stats'] = "Apparently you're trying to set more points than awarded...";
             }
             if (!empty( $errors )) {
-                return $this->twig->render ( 'Elevator/elevator.html.twig', ['errors' => $errors] );
+                return $this->twig->render('Elevator/elevator.html.twig', ['errors' => $errors]);
             } else {
                 $gameManager = new GameManager();
                 $update = [
@@ -177,11 +178,11 @@ class GameController extends AbstractController
                     'humor' => $_POST['humor'],
                     'agility' => $_POST['agility'],
                 ];
-                $id = $gameManager->levelUp ( $update );
+                $id = $gameManager->levelUp($update);
                 header ( "Location:/game/floorDescription/$id" );
             }
         }
-        return $this->twig->render ( 'Elevator/elevator.html.twig');
+        return $this->twig->render('Elevator/elevator.html.twig');
     }
     
     public function menu()
@@ -308,8 +309,8 @@ class GameController extends AbstractController
     public function floorDescription($id)
     {
         $game = new GameManager();
-        $player = $game->selectOneById ($id);
-        return $this->twig->render ( 'Game/descriptionFloor.html.twig', ['game' => $player] );
+        $player = $game->selectOneById($id);
+        return $this->twig->render('Game/descriptionFloor.html.twig', ['game' => $player] );
     }
 
     public function firstFloorEvent()
