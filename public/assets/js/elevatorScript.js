@@ -1,20 +1,6 @@
 /*  ==========================================
-    Character creation page
+    Elevator page
 * ========================================== */
-
-/*  ==========================================
-    Image upload
-* ========================================== */
-
-let output = document.getElementById('output');
-
-function loadFile() {
-    output.src = URL.createObjectURL(event.target.files[0]);
-    output.onload = function() {
-        URL.revokeObjectURL(output.src)
-    }
-};
-
 
 /*  ==========================================
     STATS
@@ -22,8 +8,8 @@ function loadFile() {
 
 //Var default setting
 
-let maxRemainingPoints = 10;
-let remainingPoints = 10;
+let maxRemainingPoints = 2;
+let remainingPoints = 2;
 let strength = 0;
 let energy = 0;
 let humor = 0;
@@ -139,5 +125,42 @@ agilityMinus.addEventListener("click", function()
             agilityValue.value = agility;
             remainingPointsValue.textContent = remainingPoints;
         }
+    }
+);
+
+/*  ==========================================
+    Elevator Doors
+* ========================================== */
+
+const leftDoor = document.querySelector("#leftDoor");
+const rightDoor = document.querySelector("#rightDoor");
+const medal = document.querySelector(".medal");
+const next = document.querySelector(".fightButton");
+
+rightDoor.addEventListener("click", function()
+    {
+        rightDoor.classList.add("active-right");
+        leftDoor.classList.add("active-left");
+        medal.style.visibility = "visible";
+    }
+);
+
+leftDoor.addEventListener("click", function()
+    {
+        rightDoor.classList.add("active-right");
+        leftDoor.classList.add("active-left");
+        medal.style.visibility = "visible";
+    }
+);
+
+next.addEventListener("click", function()
+    {
+        rightDoor.classList.remove("active-right");
+        leftDoor.classList.remove("active-left");
+        medal.style.visibility = "hidden";
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+        setTimeout(function()
+        { document.querySelector("#elevatorForm").submit(); }, 800);
     }
 );

@@ -1,0 +1,50 @@
+<h2 class="elevatorstatTittle"> <span id="remainingPoints"></span> points remaining</h2>
+<h2 class="elevatorErrorTittle">{{ errors.stats }}</h2>
+<div class="elevatorStatsArea">
+    <div class="elevatorstatContainer">
+        <div class="elevatorstatInfos">
+            <h3>Str: {{ player.strength}}</h3>
+            <img class="elevatorstatIcon" src="/assets/images/icones/strength.png" alt="icon of a strong arm">
+            <input class="elevatorstatInput" type="number" name="strength" id="strength" value="" readonly>
+            <input type="hidden" name="id" value="{{ player.id }}">
+            <input type="hidden" name="max_floor" value="{{ player.max_floor }}">
+        </div>
+        <div class="elevatorstatButtonContainer elevatorstatColumn">
+            <div class="elevatorstatButton elevatorbuttonPlus" id="strengthPlus"> + </div>
+            <div class="elevatorstatButton elevatorbuttonMinus" id="strengthMinus"> - </div>
+        </div>
+    </div>
+    <div class="elevatorstatContainer">
+        <div class="elevatorstatInfos">
+            <h3>Ene: {{ player.energy}}</h3>
+            <img class="elevatorstatIcon" src="/assets/images/icones/energy.png" alt="icon of a lightning bolt">
+            <input class="elevatorstatInput" type="number" name="energy" id="energy" value="" readonly>
+        </div>
+        <div class="elevatorstatButtonContainer elevatorstatColumn">
+            <div class="elevatorstatButton elevatorbuttonPlus" id="energyPlus"> + </div>
+            <div class="elevatorstatButton elevatorbuttonMinus" id="energyMinus"> - </div>
+        </div>
+    </div>
+    <div class="elevatorstatContainer">
+        <div class="elevatorstatInfos">
+            <h3>Hum: {{ player.humor}}</h3>
+            <img class="elevatorstatIcon" src="/assets/images/icones/humor.png" alt="icon of a pair of theatre masks">
+            <input class="elevatorstatInput" type="number" name="humor" id="humor" value="" readonly>
+        </div>
+        <div class="elevatorstatButtonContainer elevatorstatColumn">
+            <div class="elevatorstatButton elevatorbuttonPlus" id="humorPlus"> + </div>
+            <div class="elevatorstatButton elevatorbuttonMinus" id="humorMinus"> - </div>
+        </div>
+    </div>
+    <div class="elevatorstatContainer">
+        <div class="elevatorstatInfos">
+            <h3>Agi: {{ player.agility}}</h3>
+            <img class="elevatorstatIcon" src="/assets/images/icones/agility.png" alt="icon of two running mens">
+            <input class="elevatorstatInput" type="number" name="agility" id="agility" value="" readonly>
+        </div>
+        <div class="elevatorstatButtonContainer elevatorstatColumn">
+            <div class="elevatorstatButton elevatorbuttonPlus" id="agilityPlus"> + </div>
+            <div class="elevatorstatButton elevatorbuttonMinus" id="agilityMinus"> - </div>
+        </div>
+    </div>
+</div>
