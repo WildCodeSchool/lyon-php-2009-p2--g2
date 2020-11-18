@@ -12,11 +12,19 @@ class LoginController extends AbstractController
 {
     public function signUp()
     {
+        if (isset($_SESSION['userId'])) {
+            header('Location:/');
+            die();
+        }
         return $this->twig->render('Login/signUp.html.twig' );
     }
 
     public function logIn()
     {
+        if (isset($_SESSION['userId'])) {
+            header('Location:/');
+            die();
+        }
         return $this->twig->render('Login/login.html.twig' );
     }
 
@@ -85,6 +93,12 @@ class LoginController extends AbstractController
                 header ( "Location:/game/menu" );
             }
         }
+    }
 
+    public function logOut(): void
+    {
+        session_destroy();
+        unset($_SESSION);
+        header('Location:/');
     }
 }
