@@ -7,8 +7,8 @@
         <div class="flexbox-container" id="fbc3">
             <div id="main-btn" class="menuContainer">
                 <a href="createCharacter" type="button" class="fightButton menuButton">New game</a>
-                {% if is_ended == false %}
-                <a href="#" type="button" class="fightButton menuButton">Resume game</a>
+                {% if game.is_ended == 0 %}
+                <a href="floorDescription/{{ game.id }}" type="button" class="fightButton menuButton">Resume game</a>
                 {% endif %}
                 <a href="#" type="button" class="fightButton menuButton">Score</a>
             </div>

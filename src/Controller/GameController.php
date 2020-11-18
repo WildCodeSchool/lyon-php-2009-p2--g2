@@ -81,7 +81,9 @@ class GameController extends AbstractController
                     'energy' => $_POST['energy'],
                     'humor' => $_POST['humor'],
                     'agility' => $_POST['agility'],
+                    'user_id' => $_SESSION['userId'],
                 ];
+                $gameManager->dropGame($_SESSION['userId']);
                 $id = $gameManager->newGame($character);
                 header("Location:/game/floorDescription/$id");
             }
@@ -187,11 +189,13 @@ class GameController extends AbstractController
     
     public function menu()
     {
+        $userId = $_SESSION['userId'];
+        if (!isset($userId)) {
+            header("Location:login/signUp");
+        }
         $gameManager = new gameManager();
-        $id = 1;
-        $isEnded = $gameManager->isEnded($id);
-
-        return $this->twig->render('Game/menu.html.twig', ['is_ended' => $isEnded]);
+        $game = $gameManager->isEnded($userId);
+        return $this->twig->render('Game/menu.html.twig', ['game' => $game]);
     }
 
     public function result()
