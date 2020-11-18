@@ -778,7 +778,8 @@ input[type=number] {
     background-color: #527888ee;
     box-shadow: 0 5px #353a4cee;
     border-radius: 25px;
-    margin-bottom: 5px;
+    margin-bottom: 35px;
+    text-align: center;
 }
 
 .victoryImage {
@@ -796,7 +797,7 @@ input[type=number] {
     padding-top: 20px;
 }
 
-.statIcon{
+.statIconVictory{
     width: 25px;
     height: 25px;
     margin: auto 20px;
