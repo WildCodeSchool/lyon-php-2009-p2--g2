@@ -694,3 +694,137 @@ input[type=number] {
     box-shadow: 0 5px #353a4cee;
     font-size: 2em;
 }
+
+/*
+*
+* ==========================================
+* Log Forms
+* ==========================================
+*
+*/
+
+.logFormContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logFormContainer form {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+}
+
+.logFormContainer form h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.logFormContainer form button {
+    margin: 20px auto;
+}
+
+.signUpLink {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+/*
+*
+* ==========================================
+* Victory Page
+* ==========================================
+*
+*/
+
+.principal {
+    text-align: center;
+    background-image: url("../images/background/backgroundOffice.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -20px;
+}
+
+.victoryContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 4em;
+    color: azure;
+    padding: 10px;
+    width: 100%;
+    background-color: #527888ee;
+    box-shadow: 0 5px #353a4cee;
+    border-radius: 25px;
+    margin-bottom: 5px;
+    margin-top: 60px;
+}
+
+.title2 {
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 2em;
+    color: azure;
+    padding: 10px;
+    width: 100%;
+    background-color: #527888ee;
+    box-shadow: 0 5px #353a4cee;
+    border-radius: 25px;
+    margin-bottom: 5px;
+}
+
+.victoryImage {
+    max-width: 500px;
+    border-radius: 20px;
+}
+
+.card{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.mar{
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.statIcon{
+    width: 25px;
+    height: 25px;
+    margin: auto 20px;
+}
+
+.itemImageContainer {
+    width: 110px;
+    padding: 20px;
+    background-color: #527888ee;
+    box-shadow: 0 5px #353a4cee;
+    border-radius: 25px;
+    margin-bottom: 5px;
+}
+
+.victoryItemImage {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+}
+
+.itemDisplayer {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #527888ee;
+    box-shadow: 0 5px #353a4cee;
+    font-size: 2em;
+    border-radius: 25px;
+    margin-bottom: 50px;
+}
