@@ -3,28 +3,20 @@
 {% block title %}Log In{% endblock %}
 
 {% block content %}
-    <diV class="formContainer">
-        <form method="post" action="/Account/login" novalidate>
+    <diV class="logFormContainer">
+        <form method="post" action="/login/connect" class="signUpForm">
             <h2>Login</h2>
-            <p class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" class="form-control" id="username" name="username"/>
-                {% if error.username is defined %}
-                    <span style="color: red">{{ error.username }}</span>
-                {% endif%}
-            </p>
-            <p class="form-group">
-                <label for="password">Password:</label>
-                <input type="text" class="form-control" id="password" name="password"/>
-                {% if error.password is defined %}
-                    <span style="color: red">{{ error.password }}</span>
-                {% endif%}
-            </p>
-            <button type="submit" class="btn btn-primary" name="btnSave">Continue</button>
-            <a href="/Account/Create">Don't have an account? Create one!</a>
-            {% if error.login is defined %}
-                <p style="color: red">{{ error.login }}</p>
-            {% endif%}
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" id="username" name="username" value="{{ values.username }}"/>
+            <p class="errorMessage">{{ errors.username }}</p>
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" name="password"/>
+            <p class="errorMessage">{{ errors.password }}</p>
+            <button type="submit" class="fightButton">Login !</button>
+            <p class="errorMessage">{{ errors.login }}</p>
         </form>
     </diV>
+    <div class="signUpLink">
+        <a href="/login/signUp">Don't have an account ? Sign Up !</a>
+    </div>
 {% endblock %}

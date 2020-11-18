@@ -14,17 +14,20 @@
             <input type="text" class="form-control" id="username" name="username" value="{{ form.username }}"/>
             <p class="errorMessage">{{ errors.username }}</p>
             <label for="email">Email:</label>
-            <input type="text" class="form-control" id="email" name="email" value="{{ form.email }}"/>
+            <input type="email" class="form-control" id="email" name="email" value="{{ form.email }}"/>
             <p class="errorMessage">{{ errors.email }}</p>
             <label for="password">Password:</label>
-            <input type="text" class="form-control" id="password" name="password"/>
+            <input type="password" class="form-control" id="password" name="password"/>
             <p class="errorMessage">{{ errors.password }}</p>
             <label for="password2">Repeat password:</label>
-            <input type="text" class="form-control" id="password2" name="password2"/>
+            <input type="password" class="form-control" id="password2" name="password2"/>
             <p class="errorMessage">{{ errors.password2 }}</p>
             <button type="submit" class="fightButton">Create !</button>
         </form>
     </diV>
+    <div class="signUpLink">
+        <a href="/login/logIn">Already have an account ? Log In !</a>
+    </div>
 {% endblock %}
 
 {% block javascript %}{% endblock %}

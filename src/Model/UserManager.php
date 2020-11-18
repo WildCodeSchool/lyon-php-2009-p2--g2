@@ -44,9 +44,9 @@ class UserManager extends AbstractManager
      * @param string $username
      * @return array
      */
-    public function is_OkLogin(string $username): array
+    public function passwordCheck(string $username): array
     {
-        $query = "SELECT password FROM " . self::TABLE . " WHERE `username` = :username;";
+        $query = "SELECT id, password FROM " . self::TABLE . " WHERE `username` = :username;";
         $statement = $this->pdo->prepare($query);
         $statement->bindValue(':username', $username, \PDO::PARAM_STR);
         $statement->execute();

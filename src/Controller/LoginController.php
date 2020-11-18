@@ -95,6 +95,47 @@ class LoginController extends AbstractController
         }
     }
 
+    public function connect()
+    {
+        $logErrors = [];
+        $userManager = new UserManager();
+        $values['username'] = $_POST['username'];
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if(empty($_POST['username'])) {
+                $logErrors['username'] = "You have to enter a username";
+            } else {
+                $username = trim($_POST['username']);
+            }
+            if(empty($userManager->is_UsedUsername($username))) {
+                $logErrors['username'] = "No such User...";
+            }
+            if (empty($_POST['password'])) {
+                $logErrors['password'] = 'Password required';
+            } else {
+                $password = trim($_POST['password']);
+            }
+            if (empty($logErrors)) {
+                $dbCheck = $userManager->passwordCheck($username);
+                if (password_verify($password, $dbCheck['password'])) {
+                    $_SESSION['userId'] = $dbCheck['id'];
+                    header ( "Location:/game/menu" );
+                } else {
+                    $logErrors['login'] = "Wrong password or username";
+                    return $this->twig->render('Login/login.html.twig', [
+                        'errors' => $logErrors,
+                        'values' => $values,
+                    ]);
+                }
+            } else {
+                return $this->twig->render('Login/login.html.twig', [
+                    'errors' => $logErrors,
+                    'values' => $values,
+                ]);
+            }
+        }
+    }
+
     public function logOut(): void
     {
         session_destroy();
