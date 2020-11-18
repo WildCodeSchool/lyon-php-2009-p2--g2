@@ -37,6 +37,10 @@ class GameController extends AbstractController
      */
     public function createCharacter()
     {
+        if (empty($_SESSION)) {
+            header("Location:/login/signUp");
+            die();
+        }
         return $this->twig->render('Character/character.html.twig' );
     }
 
@@ -46,6 +50,10 @@ class GameController extends AbstractController
      */
     public function start()
     {
+        if (empty($_SESSION)) {
+            header("Location:/login/signUp");
+            die();
+        }
         $errors = [];
         $mimeAllowed = [
             'png' => 'image/png',
@@ -101,6 +109,10 @@ class GameController extends AbstractController
      */
     public function event($idGame)
     {
+        if (empty($_SESSION)) {
+            header("Location:/login/signUp");
+            die();
+        }
         $game = new GameManager();
         $newPlayer = $game->selectOneById($idGame);
         if (!empty($newPlayer['max_floor'])) {
@@ -149,6 +161,10 @@ class GameController extends AbstractController
      */
     public function elevator($idGame)
     {
+        if (empty($_SESSION)) {
+            header("Location:/login/signUp");
+            die();
+        }
         $game = new GameManager();
         $game->save($idGame);
         $newPlayer = $game->selectOneById($idGame);
@@ -163,6 +179,10 @@ class GameController extends AbstractController
      */
     public function nextFloor()
     {
+        if (empty($_SESSION)) {
+            header("Location:/login/signUp");
+            die();
+        }
         $errors = [];
         if (isset( $_POST ) && $_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($_POST['strength'] > 2 || $_POST['energy'] > 2 || $_POST['humor'] > 2 || $_POST['agility'] > 2) {
@@ -189,9 +209,11 @@ class GameController extends AbstractController
     
     public function menu()
     {
-        $userId = $_SESSION['userId'];
-        if (!isset($userId)) {
-            header("Location:login/signUp");
+        if (empty($_SESSION)) {
+            header("Location:/login/signUp");
+            die();
+        } else {
+            $userId = $_SESSION['userId'];
         }
         $gameManager = new gameManager();
         $game = $gameManager->isEnded($userId);
@@ -200,6 +222,10 @@ class GameController extends AbstractController
 
     public function result()
     {
+        if (empty($_SESSION)) {
+            header("Location:/login/signUp");
+            die();
+        }
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)) {
             $action = $_POST;
             //Take all player information
@@ -273,6 +299,10 @@ class GameController extends AbstractController
 
     public function newItemPlayer($idGame)
     {
+        if (empty($_SESSION)) {
+            header("Location:/login/signUp");
+            die();
+        }
         $playerItem = [];
         //Checks how many items the player has
         $newSumItems = new ItemManager();
@@ -292,6 +322,10 @@ class GameController extends AbstractController
 
     public function takeAction($action)
     {
+        if (empty($_SESSION)) {
+            header("Location:/login/signUp");
+            die();
+        }
         $power = '';
         switch ($action) {
             case 'Action 1':
@@ -312,6 +346,10 @@ class GameController extends AbstractController
 
     public function floorDescription($id)
     {
+        if (empty($_SESSION)) {
+            header("Location:/login/signUp");
+            die();
+        }
         $game = new GameManager();
         $player = $game->selectOneById($id);
         return $this->twig->render('Game/descriptionFloor.html.twig', ['game' => $player] );
@@ -319,6 +357,10 @@ class GameController extends AbstractController
 
     public function firstFloorEvent()
     {
+        if (empty($_SESSION)) {
+            header("Location:/login/signUp");
+            die();
+        }
         $id = $_POST['id'];
         header("Location:/game/event/$id");
     }
