@@ -7,6 +7,7 @@
     <div class="container">
         <h1 class="title">Victory!</h1>
         <img src="/assets/images/event/victory.jpg" class="victoryImage" alt="victory image">
+        {% if item %}
         <h2 class="title2">You win a new item !</h2>
         <div class="row justify-content-center victoryContainer">
             <div class="col-md-4 itemImageContainer">
@@ -31,6 +32,7 @@
                 </div>
             </div>
         </div>
+        {% endif %}
         <div class="row justify-content-center">
             <a href="/Game/event/{{ game.id }}" class="fightButton menuButton">Next event</a>
         </div>
