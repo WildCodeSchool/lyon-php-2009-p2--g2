@@ -217,7 +217,6 @@ class GameController extends AbstractController
             echo $power;
             //Compares the power of the event with the power of the player
             if ($player[$power] >= $event[$power]) {
-                echo "Power player: " . $player[$power] . "Power event : " . $event[$power];
                 //If he won:
                 //check how many events he did in this floor
                 $arrayCountEvents  = $newPlayer->countPlayerEvents($player['id']);
