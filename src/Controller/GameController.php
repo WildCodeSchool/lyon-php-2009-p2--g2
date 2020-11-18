@@ -14,6 +14,7 @@ use App\Model\EventManager;
 use App\Model\GameEventManager;
 use App\Model\GameManager;
 use App\Model\ItemManager;
+use App\Model\UserManager;
 
 /**
  * Class GameController
@@ -145,7 +146,7 @@ class GameController extends AbstractController
             return $this->twig->render('Game/event.html.twig', [
                 'event' => $chooseEvent,
                 'game' => $newPlayer,
-                'items' => $itemsPlayer],
+                'items' => $itemsPlayer]
             );
         } else {
             echo 'Character doesnt exist!';
@@ -217,7 +218,14 @@ class GameController extends AbstractController
         }
         $gameManager = new gameManager();
         $game = $gameManager->isEnded($userId);
-        return $this->twig->render('Game/menu.html.twig', ['game' => $game]);
+        if (empty($game)) {
+            $game['is_ended'] = 1;
+        }
+        $user = (new UserManager())->selectOneById($userId);
+        return $this->twig->render('Game/menu.html.twig', [
+            'game' => $game,
+            'user' => $user
+        ]);
     }
 
     public function result()

@@ -93,6 +93,7 @@ class LoginController extends AbstractController
                 header ( "Location:/game/menu" );
             }
         }
+        return $this->twig->render('login/signUp.html.twig');
     }
 
     public function connect()
@@ -134,6 +135,7 @@ class LoginController extends AbstractController
                 ]);
             }
         }
+        return $this->twig->render('Login/login.html.twig');
     }
 
     public function logOut(): void
