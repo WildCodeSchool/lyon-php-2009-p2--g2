@@ -99,11 +99,30 @@ th {
     justify-content: space-between;
     align-items: center;
 }
-.event-buttons{
-    display: flex;
-    justify-content: space-around;
-    flex-flow: wrap;
+
+.eventButton {
+    min-width: 100%;
+    max-width: 100%;
+    padding: 15px 25px;
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+    background-color: #62a2b5;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #527888;
+    margin-bottom: 15px;
+    white-space: normal;
 }
+
+.eventImage {
+    width: 90vw;
+}
+
+.eventChoices {
+    width: 90vw;
+}
+
 
 @media only screen and (min-width: 900px) {
     th {
@@ -117,9 +136,6 @@ th {
     .image-character {
         width: 80px;
         height: 80px;
-    }
-    .eventImage{
-        width: 200px;
     }
 }
 
