@@ -27,10 +27,12 @@
                 </ul>
             </div>
             {% if session.userId %}
-                <a class="logButton" href="/login/logOut">Log Out</a>
+                <a class="logButton logOut" href="/login/logOut">Log Out</a>
             {% else %}
-                <a class="logButton" href="/login/signUp">Sign Up !</a>
-                <a class="logButton" href="/login/logIn">Log In !</a>
+                <div class="logNavBar">
+                    <a class="logButton" href="/login/signUp">Sign Up !</a>
+                    <a class="logButton" href="/login/logIn">Log In !</a>
+                </div>
             {% endif %}
         </nav>
         {% block content %}{% endblock %}

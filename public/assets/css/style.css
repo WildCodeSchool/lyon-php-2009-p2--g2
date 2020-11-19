@@ -57,6 +57,37 @@
     align-items: center;
 }
 
+.logNavBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logButton {
+    padding: 5px 15px;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #62a2b5;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 9px #527888;
+    margin-bottom: 10px;
+}
+
+.logButton:hover {
+    background-color: #3e6772;
+    text-decoration: none;
+    color : white;
+}
+
+.logButton:active {
+    background-color: #3e6772;
+    box-shadow: 0 5px #353a4c;
+    transform: translateY(4px);
+}
+
 /*
 *
 * ==========================================
@@ -274,7 +305,8 @@ th {
     margin-bottom: 50px;
 }
 
-.fightButton:hover {background-color: #3e6772
+.fightButton:hover {
+    background-color: #3e6772;
 }
 
 .fightButton:active {
