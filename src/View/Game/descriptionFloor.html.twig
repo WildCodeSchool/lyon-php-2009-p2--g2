@@ -12,16 +12,16 @@
         <div class="floorDescriptionContainer">
             <img class="floorPicture" src="/assets/images/floorDescription/floor{{ game.max_floor }}.png" alt="Situation picture in office">
             {% if game.max_floor == 1 %}
-                <p class="floorDescriptionText">Welcome in your new office young Dev ! <br> You'll see, we are a well organised team ! <br> There are just some... <br> Events that occurs... <br> Sometime... <br> ... <br> Anyway ! Welcome {{ game.name }} !</p>
+                <p class="floorDescriptionText">Welcome to your new office, young developer! <br> You will soon realize that we are a well organized team! <br> Though, there are some events occurring... sometimes. Anyways, welcome {{ game.name }}!</p>
             {% endif %}
             {% if game.max_floor == 2 %}
-                <p class="floorDescriptionText">Great ! So you manage to make it to week two ! <br> With honor if I may say so. <br> So keep it like that {{ game.name }} and you may surviv... get to the first month here !</p>
+                <p class="floorDescriptionText">Impressive! You managed to make it to week two! <br> and with honor if I may say so. <br> Keep it up, {{ game.name }} and you may survive... I mean, get to stay for the first month here!</p>
             {% endif %}
             {% if game.max_floor == 3 %}
-                <p class="floorDescriptionText">Ohohoh, an entire month Eh ? <br> You're far less useless than we imagine after all... <br> Ok, let's see how far you can go {{ game.name }} !</p>
+                <p class="floorDescriptionText">Wow, an entire month now? <br> You're far less useless than we imagined after all... <br> Okay then, now let's see how far you can go, {{ game.name }}!</p>
             {% endif %}
             {% if game.max_floor == 4 %}
-                <p class="floorDescriptionText">What can I say... {{ game.name }} you're essential to us now...<br> Just go and show them !</p>
+                <p class="floorDescriptionText">What can I say, {{ game.name }}? You ARE essential to us now...<br> Show us what you can do!</p>
             {% endif %}
         </div>
         <form action="/game/firstFloorEvent" method="post">
