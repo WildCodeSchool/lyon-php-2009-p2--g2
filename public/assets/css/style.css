@@ -34,6 +34,63 @@
 /*
 *
 * ==========================================
+* NavBar
+* ==========================================
+*
+*/
+
+.homeContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../images/background/backGif1.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.homeGroupContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logNavBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logButton {
+    padding: 5px 15px;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #62a2b5;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 9px #527888;
+    margin-bottom: 10px;
+}
+
+.logButton:hover {
+    background-color: #3e6772;
+    text-decoration: none;
+    color : white;
+}
+
+.logButton:active {
+    background-color: #3e6772;
+    box-shadow: 0 5px #353a4c;
+    transform: translateY(4px);
+}
+
+/*
+*
+* ==========================================
 * Menu Page
 * ==========================================
 *
@@ -70,6 +127,13 @@
 *
 */
 
+.eventBackground {
+    background-image: url("../images/background/backgroundOffice.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -20px;
+}
+
 .items, th, td {
     border: 2px solid black;
     padding: 0;
@@ -99,11 +163,30 @@ th {
     justify-content: space-between;
     align-items: center;
 }
-.event-buttons{
-    display: flex;
-    justify-content: space-around;
-    flex-flow: wrap;
+
+.eventButton {
+    min-width: 100%;
+    max-width: 100%;
+    padding: 15px 25px;
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+    background-color: #62a2b5;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #527888;
+    margin-bottom: 15px;
+    white-space: normal;
 }
+
+.eventImage {
+    width: 90vw;
+}
+
+.eventChoices {
+    width: 90vw;
+}
+
 
 @media only screen and (min-width: 900px) {
     th {
@@ -117,9 +200,6 @@ th {
     .image-character {
         width: 80px;
         height: 80px;
-    }
-    .eventImage{
-        width: 200px;
     }
 }
 
@@ -225,7 +305,8 @@ th {
     margin-bottom: 50px;
 }
 
-.fightButton:hover {background-color: #3e6772
+.fightButton:hover {
+    background-color: #3e6772;
 }
 
 .fightButton:active {
@@ -694,4 +775,143 @@ input[type=number] {
     box-shadow: 0 5px #353a4cee;
     font-size: 2em;
 }
+<<<<<<< HEAD
 >>>>>>> master
+=======
+
+/*
+*
+* ==========================================
+* Log Forms
+* ==========================================
+*
+*/
+
+.logFormContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logFormContainer form {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+}
+
+.logFormContainer form h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.logFormContainer form button {
+    margin: 20px auto;
+}
+
+.signUpLink {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+/*
+*
+* ==========================================
+* Victory Page
+* ==========================================
+*
+*/
+
+.principal {
+    text-align: center;
+    background-image: url("../images/background/backgroundOffice.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -20px;
+    min-height: 100vh;
+}
+
+.victoryContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 4em;
+    color: azure;
+    padding: 10px;
+    width: 100%;
+    background-color: #527888ee;
+    box-shadow: 0 5px #353a4cee;
+    border-radius: 25px;
+    margin-bottom: 5px;
+    margin-top: 60px;
+}
+
+.title2 {
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 2em;
+    color: azure;
+    padding: 10px;
+    width: 100%;
+    background-color: #527888ee;
+    box-shadow: 0 5px #353a4cee;
+    border-radius: 25px;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.victoryImage {
+    max-width: 500px;
+    border-radius: 20px;
+}
+
+.card{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.mar{
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.statIconVictory{
+    width: 25px;
+    height: 25px;
+    margin: auto 20px;
+}
+
+.itemImageContainer {
+    width: 110px;
+    padding: 20px;
+    background-color: #527888ee;
+    box-shadow: 0 5px #353a4cee;
+    border-radius: 25px;
+    margin-bottom: 5px;
+}
+
+.victoryItemImage {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+}
+
+.itemDisplayer {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #527888ee;
+    box-shadow: 0 5px #353a4cee;
+    font-size: 2em;
+    border-radius: 25px;
+    margin-bottom: 50px;
+}
+>>>>>>> cd258af6cca4ad0838aa4a26e8d22d614bceeea5
