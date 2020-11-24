@@ -11,7 +11,7 @@
                 {% if game.is_ended == 0 %}
                 <a href="floorDescription/{{ game.id }}" type="button" class="fightButton menuButton">Resume game</a>
                 {% endif %}
-                <a href="#" type="button" class="fightButton menuButton">Score</a>
+                <a href="/Game/score/{{ user.id }}" type="button" class="fightButton menuButton">Score</a>
             </div>
         </div>
     </div>

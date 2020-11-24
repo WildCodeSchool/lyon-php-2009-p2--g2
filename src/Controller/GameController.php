@@ -390,4 +390,11 @@ class GameController extends AbstractController
         $id = $_POST['id'];
         header("Location:/game/event/$id");
     }
+    public function pantheon()
+    {
+        $gameManager = new GameManager();
+        $pantheon = $gameManager->selectTheBestPlayers();
+        //var_dump($pantheon);
+        return $this->twig->render('Pantheon/index.html.twig', ['pantheon' => $pantheon] );
+    }
 }

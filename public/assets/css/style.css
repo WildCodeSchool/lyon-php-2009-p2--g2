@@ -911,3 +911,39 @@ input[type=number] {
     border-radius: 25px;
     margin-bottom: 50px;
 }
+/*
+*
+* ==========================================
+* Pantheon Page
+* ==========================================
+*
+*/
+.circle {
+    margin:10px;
+    width:110px;
+    background:#FF0000;
+    text-align:center;
+    border-radius:100px;
+    line-height:15px;
+    height:110px;
+    padding-top:40px;
+}
+.square {
+    display: flex;
+    box-sizing: content-box;
+    width: 100px;
+    height: 50px;
+    border: solid #5B6DCD 10px;
+    text-align: center;
+    align-items: center;
+}
+.item_pantheon{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.pantheon{
+    display: flex;
+    flex-direction: column;
+}

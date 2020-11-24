@@ -20,6 +20,7 @@ class GameManager extends AbstractManager
      *
      */
     private const TABLE = 'game';
+    private const TABLE2 = 'user';
 
     /**
      *  Initializes this class.
@@ -117,5 +118,16 @@ class GameManager extends AbstractManager
         $statement->bindValue(':idGame', $idGame, \PDO::PARAM_INT);
         $statement->execute();
         return $statement->fetch();
+    }
+    public function selectTheBestPlayers()
+    {
+        //select u.username, g.id, g.name, g.image, g.max_floor, g.event_count from game g
+        //inner join user u order by max_floor desc,event_count desc;
+        $query = "SELECT u.username, g.id, g.name, g.image, g.max_floor, g.event_count ";
+        $query .= "FROM " . $this->table . " g ";
+        $query .= "INNER JOIN " . self::TABLE2 . " u ON u.id = g.user_id ";
+        $query .= "order by max_floor desc, event_count desc";
+        $statement = $this->pdo->query($query);
+        return $statement->fetchAll();
     }
 }
