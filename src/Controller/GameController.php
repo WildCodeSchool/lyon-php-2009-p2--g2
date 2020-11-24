@@ -131,7 +131,7 @@ class GameController extends AbstractController
             return $this->twig->render('Game/event.html.twig', [
                 'event' => $chooseEvent,
                 'game' => $newPlayer,
-                'items' => $itemsPlayer],
+                'items' => $itemsPlayer]
             );
         } else {
             echo 'Character doesnt exist!';
