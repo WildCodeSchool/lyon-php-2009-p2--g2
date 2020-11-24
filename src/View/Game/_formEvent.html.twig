@@ -10,20 +10,22 @@
 </div>
 <div class="row m-3">
     <div class="col">
-        <input type="image" name="image" alt="image_event" class="eventImage rounded mx-auto d-block center" src="{{ event.image }}">
+        <input type="image" name="image" alt="image_event" class="eventImage rounded mx-auto d-block center" src="/assets/images/event/{{ event.image }}">
     </div>
 </div>
 <div class="row m-3">
     <div class="col">
-        <form action="/game/result" method="post">
-            <div class="event-buttons">
-                <input type="submit" name="action" value="Action 1" class="m-2">
-                <input type="submit" name="action" value="Action 2" class="m-2">
-                <input type="submit" name="action" value="Action 3" class="m-2">
-                <input type="submit" name="action" value="Action 4" class="m-2">
-            </div>
-            <input type="hidden" value="{{ event.id }}" name="event_id">
-            <input type="hidden" value="{{ game.id }}" name="game_id">
-        </form>
+        <div class="row m-3">
+            {% for action in actions %}
+                <form action="/game/result" method="post">
+                    <div class="eventChoices">
+                        <input type="hidden" value="{{ action.id }}" name="action_id">
+                        <input type="submit" value="{{ action.value }}" class="menuButton eventButton">
+                        <input type="hidden" value="{{ event.id }}" name="event_id">
+                        <input type="hidden" value="{{ game.id }}" name="game_id">
+                    </div>
+                </form>
+            {% endfor %}
+        </div>
     </div>
 </div>

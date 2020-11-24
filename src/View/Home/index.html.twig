@@ -7,19 +7,17 @@
 {% endblock %}
 
 {% block content %}
-    <div class="flexbox-container" id="fbc1">
-        <div id="main-btn" class="btn-group-vertical">
-            <a href="/Game/menu" type="button" class="btn btn-secondary">Play</a>
-            <a href="#" type="button" class="btn btn-secondary">Options</a>
-            <a href="#" type="button" class="btn btn-secondary">Pantheon</a>
-        </div>
+<div class="homeContainer">
+    <div class="homeGroupContainer">
+        <a href="/Game/menu" type="button" class="fightButton menuButton">Play</a>
+        <a href="#" type="button" class="fightButton menuButton">Options</a>
+        <a href="#" type="button" class="fightButton menuButton">Pantheon</a>
     </div>
-    <div class="flexbox-container" id="fbc2">
-        <div id="main-btn" class="btn-group-vertical">
-            <a href="#" type="button" class="btn btn-secondary">How to play</a>
-            <a href="#" type="button" class="btn btn-secondary">Credits</a>
-        </div>
+    <div class="homeGroupContainer">
+        <a href="#" type="button" class="fightButton menuButton">How to play</a>
+        <a href="#" type="button" class="fightButton menuButton">Credits</a>
     </div>
+</div>
 {% endblock %}
 
 {% block javascript %}{% endblock %}
