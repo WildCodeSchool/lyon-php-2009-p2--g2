@@ -6,29 +6,84 @@
 *
 */
 
-.navbar {
+#navbar {
     margin-bottom: 0px;
-}
-
-.flexbox-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #353a4c;
+    border-bottom: 2px solid black;
+    padding: 5px 15px;
 }
 
-#fbc1 .btn-group-vertical>.btn {
-    font-size: 25px;
+.homeLink {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
-#fbc2 .btn-group-vertical>.btn {
-    font-size: 20px;
+.homeLink:hover {
+    text-decoration: none;
+    color: azure;
 }
 
-#main-btn {
-    margin: 20px;
+.navTitle {
+    color: white;
+    text-decoration: none;
+    font-size: 1.4em;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 5px;
+    text-shadow: 1px 1px 5px black;
 }
 
-.btn-group-vertical>.btn {
-    margin-bottom: 15px;
+.logoNav {
+    max-width: 70px;
+}
+
+.linkList {
+    margin: 15px;
+}
+
+.logNavBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logButton {
+    padding: 5px 15px;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #62a2b5;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 9px #527888;
+    margin: 5px;
+}
+
+.logButton:hover {
+    background-color: #3e6772;
+    text-decoration: none;
+    color : white;
+}
+
+.logButton:active {
+    background-color: #3e6772;
+    box-shadow: 0 5px #353a4c;
+    transform: translateY(4px);
+}
+
+#burgerIcon {
+    width: 35px;
+    height: 35px;
+}
+
+.burgerMenu {
+    background-color: #353a4c;
+    border-bottom: 2px solid black;
 }
 
 /*
@@ -55,45 +110,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.logNavBar {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.logButton {
-    padding: 5px 15px;
-    font-size: 18px;
-    text-align: center;
-    text-decoration: none;
-    color: #fff;
-    background-color: #62a2b5;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 9px #527888;
-    margin-bottom: 10px;
-}
-
-.logButton:hover {
-    background-color: #3e6772;
-    text-decoration: none;
-    color : white;
-}
-
-.logButton:active {
-    background-color: #3e6772;
-    box-shadow: 0 5px #353a4c;
-    transform: translateY(4px);
-}
-
-@media only screen and (max-width: 700px) {
-    .logNavBar {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
 }
 
 /*

@@ -12,20 +12,14 @@
     {% block stylesheet %}{% endblock %}
 </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
-            <a class="navbar-brand" href="/">Office Warriors</a>
+        <nav class=" navbar-dark" id="navbar">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon" id="burgerIcon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" href="/Game/menu">Play</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Options</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Pantheon</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">How to play</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Credits</a></li>
-                </ul>
-            </div>
+            <a class="homeLink" href="/">
+                <img src="/assets/images/logo/logo.png" class="logoNav">
+                <div class="navTitle">Office <br>Warriors</div>
+            </a>
             {% if session.userId %}
                 <a class="logButton logOut" href="/login/logOut">Log Out</a>
             {% else %}
@@ -35,6 +29,15 @@
                 </div>
             {% endif %}
         </nav>
+        <div class="collapse navbar-collapse burgerMenu" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto deployedBurger">
+                <li class="linkList"><a class="logButton" href="/Game/menu">Play</a></li>
+                <li class="linkList"><a class="logButton" href="#">Options</a></li>
+                <li class="linkList"><a class="logButton" href="#">Pantheon</a></li>
+                <li class="linkList"><a class="logButton" href="#">How to play</a></li>
+                <li class="linkList"><a class="logButton" href="#">Credits</a></li>
+            </ul>
+        </div>
         {% block content %}{% endblock %}
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
