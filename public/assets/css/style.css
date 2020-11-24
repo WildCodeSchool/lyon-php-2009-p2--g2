@@ -34,6 +34,71 @@
 /*
 *
 * ==========================================
+* NavBar
+* ==========================================
+*
+*/
+
+.homeContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../images/background/backGif1.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.homeGroupContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logNavBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logButton {
+    padding: 5px 15px;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #62a2b5;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 9px #527888;
+    margin: 7px;
+}
+
+.logButton:hover {
+    background-color: #3e6772;
+    text-decoration: none;
+    color : white;
+}
+
+.logButton:active {
+    background-color: #3e6772;
+    box-shadow: 0 5px #353a4c;
+    transform: translateY(4px);
+}
+
+@media only screen and (max-width: 700px) {
+    .logNavBar {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+/*
+*
+* ==========================================
 * Menu Page
 * ==========================================
 *
