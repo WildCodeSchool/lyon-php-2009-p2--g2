@@ -14,6 +14,8 @@ use App\Model\EventManager;
 use App\Model\GameEventManager;
 use App\Model\GameManager;
 use App\Model\ItemManager;
+use App\Model\UserManager;
+use App\Model\ActionManager;
 
 /**
  * Class GameController
@@ -30,13 +32,17 @@ class GameController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    private $events = [];
+
 
     /**
      *  Display character creation form
      */
     public function createCharacter()
     {
+        if (empty($_SESSION)) {
+            header("Location:/login/signUp");
+            die();
+        }
         return $this->twig->render('Character/character.html.twig' );
     }
 
@@ -46,6 +52,10 @@ class GameController extends AbstractController
      */
     public function start()
     {
+        if (empty($_SESSION)) {
+            header("Location:/login/signUp");
+            die();
+        }
         $errors = [];
         $mimeAllowed = [
             'png' => 'image/png',
@@ -81,7 +91,9 @@ class GameController extends AbstractController
                     'energy' => $_POST['energy'],
                     'humor' => $_POST['humor'],
                     'agility' => $_POST['agility'],
+                    'user_id' => $_SESSION['userId'],
                 ];
+                $gameManager->dropGame($_SESSION['userId']);
                 $id = $gameManager->newGame($character);
                 header("Location:/game/floorDescription/$id");
             }
@@ -99,6 +111,11 @@ class GameController extends AbstractController
      */
     public function event($idGame)
     {
+        if (empty($_SESSION)) {
+            header("Location:/login/signUp");
+            die();
+        }
+        $events = [];
         $game = new GameManager();
         $newPlayer = $game->selectOneById($idGame);
         if (!empty($newPlayer['max_floor'])) {
@@ -106,7 +123,7 @@ class GameController extends AbstractController
             $floor = $newPlayer['max_floor'];
             $newEvent = new EventManager();
             //Take all events by floor
-            $this->events = $newEvent->selectAllEvents($floor);
+            $events = $newEvent->selectAllEvents($floor);
             //Take the events made by floor in game_has_event
             $newGameEvent = new GameEventManager();
 
@@ -115,29 +132,31 @@ class GameController extends AbstractController
             $arrayEvents = [];
             $chooseEvent = [];
             if (count($playerEvents) === 0) {
-                $chooseEvent = $this->events[array_rand($this->events)];
+                $chooseEvent = $events[array_rand($events)];
             } elseif (count($playerEvents) >= 1) {
                 foreach ($playerEvents as $playerEvent) {
                     $arrayPlayerEvents[] = $playerEvent['event_id'];
                 }
-                foreach ($this->events as $event) {
+                foreach ($events as $event) {
                     $arrayEvents[] = $event['id'];
                 }
                 $result = array_diff($arrayEvents, $arrayPlayerEvents);
-                $chooseEvent = $this->events[array_rand($result)];
+                $chooseEvent = $events[array_rand($result)];
             }
+            $newAction = new ActionManager();
+            $actions =  $newAction->selectAllActions($chooseEvent['id']);
             $newItems = new ItemManager();
             $itemsPlayer = $newItems->selectAllPlayerItems($idGame);
             return $this->twig->render('Game/event.html.twig', [
                 'event' => $chooseEvent,
                 'game' => $newPlayer,
-                'items' => $itemsPlayer],
-            );
+                'items' => $itemsPlayer,
+                'actions' => $actions,
+            ]);
         } else {
             echo 'Character doesnt exist!';
         }
     }
-
     /**
      * @param $idGame
      * @return string
@@ -147,6 +166,10 @@ class GameController extends AbstractController
      */
     public function elevator($idGame)
     {
+        if (empty($_SESSION)) {
+            header("Location:/login/signUp");
+            die();
+        }
         $game = new GameManager();
         $game->save($idGame);
         $newPlayer = $game->selectOneById($idGame);
@@ -161,8 +184,12 @@ class GameController extends AbstractController
      */
     public function nextFloor()
     {
+        if (empty($_SESSION)) {
+            header("Location:/login/signUp");
+            die();
+        }
         $errors = [];
-        if (isset( $_POST ) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($_POST['strength'] > 2 || $_POST['energy'] > 2 || $_POST['humor'] > 2 || $_POST['agility'] > 2) {
                 $errors['stats'] = "Apparently you're trying to set more points than awarded...";
             }
@@ -187,24 +214,45 @@ class GameController extends AbstractController
     
     public function menu()
     {
+        if (empty($_SESSION)) {
+            header("Location:/login/signUp");
+            die();
+        } else {
+            $userId = $_SESSION['userId'];
+        }
         $gameManager = new gameManager();
-        $id = 1;
-        $isEnded = $gameManager->isEnded($id);
-
-        return $this->twig->render('Game/menu.html.twig', ['is_ended' => $isEnded]);
+        $game = $gameManager->isEnded($userId);
+        if (empty($game)) {
+            $game['is_ended'] = 1;
+        }
+        $user = (new UserManager())->selectOneById($userId);
+        return $this->twig->render('Game/menu.html.twig', [
+            'game' => $game,
+            'user' => $user
+        ]);
     }
 
     public function result()
     {
+        if (empty($_SESSION)) {
+            header("Location:/login/signUp");
+            die();
+        }
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)) {
             $action = $_POST;
+            //'action_id' => string '4' (length=1)
+            //'event_id' => string '1' (length=1)
+            // 'game_id' => string '2' (length=1)
             //Take all player information
             $newPlayer = new GameManager();
             $player = $newPlayer->selectOneById($action['game_id']);
             //Take all event information
             $newEvent = new EventManager();
             $event = $newEvent->selectOneById($action['event_id']);
-            $power = $this->takeAction($action['action']);
+            $newAction = new ActionManager();
+            $actionDb = $newAction->selectOneById($action['action_id']);
+            $power = $actionDb['stat'];
+            echo $power;
             //Compares the power of the event with the power of the player
             if ($player[$power] >= $event[$power]) {
                 //If he won:
@@ -224,21 +272,23 @@ class GameController extends AbstractController
                     //check if the player will win a new item or not;
                     $playerItem = $this->newItemPlayer($player['id']);
                     //Redirect the player to the victory page
-                    return $this->twig->render('Game/victory.html.twig', ['game' => $player, 'item' => $playerItem]);
+                    return $this->twig->render('Game/victory.html.twig', [
+                        'game' => $player,
+                        'item' => $playerItem,
+                        'action' => $actionDb,
+                        ]);
                 } else {
                     //If he has 2 events:
                     //Registrar o evento no ascencer en questao
                     $newGameEvent = new GameEventManager();
                     $newGameEvent->insertGameEvent($player['id'], $player['user_id'], $event['id']);
-                    if ($player['max_floor'] == 1 || $player['max_floor'] == 2 || $player['max_floor'] == 3 || $player['max_floor'] == 4) {
-                        //If he is on the foor first floors
+                    if ($player['max_floor'] == 1 || $player['max_floor'] == 2 || $player['max_floor'] == 3) {
+                        //If he isn't in the last floor
                         $countEvents = 3;
-                        //Update the event_count and floor
+                        //Update the event_count
                         $newPlayer->updatePlayerEvent($countEvents, $player['id']);
                         //Actualise player
                         $player = $newPlayer->selectOneById($player['id']);
-                        //check if the player will win a new item or not;
-                        $playerItem = $this->newItemPlayer($player['id']);
                         // Redirect to the elevator change page for the new elevator
                         $id = $player['id'];
                         header("Location:/game/elevator/$id");
@@ -251,7 +301,10 @@ class GameController extends AbstractController
                         //Actualise player
                         $player = $newPlayer->selectOneById($player['id']);
                         //If he is on the top floor, send he to the final victory page
-                        return $this->twig->render('Game/floor.html.twig', ['game' => $player]);
+                        return $this->twig->render('Game/floor.html.twig', [
+                            'game' => $player,
+                            'action' => $actionDb,
+                            ]);
                     }
                 }
             } else {
@@ -260,7 +313,10 @@ class GameController extends AbstractController
                 $newDied = new GameManager();
                 $newDied->killPlayer($player['id']);
                 //Redirects to the defeat page:
-                return $this->twig->render('Game/defeat.html.twig', ['game' => $player]);
+                return $this->twig->render('Game/defeat.html.twig', [
+                    'game' => $player,
+                    'action' => $actionDb,
+                ]);
             }
         } else {
             header('Location:/game/event/');
@@ -269,6 +325,10 @@ class GameController extends AbstractController
 
     public function newItemPlayer($idGame)
     {
+        if (empty($_SESSION)) {
+            header("Location:/login/signUp");
+            die();
+        }
         $playerItem = [];
         //Checks how many items the player has
         $newSumItems = new ItemManager();
@@ -288,6 +348,10 @@ class GameController extends AbstractController
 
     public function takeAction($action)
     {
+        if (empty($_SESSION)) {
+            header("Location:/login/signUp");
+            die();
+        }
         $power = '';
         switch ($action) {
             case 'Action 1':
@@ -308,6 +372,10 @@ class GameController extends AbstractController
 
     public function floorDescription($id)
     {
+        if (empty($_SESSION)) {
+            header("Location:/login/signUp");
+            die();
+        }
         $game = new GameManager();
         $player = $game->selectOneById($id);
         return $this->twig->render('Game/descriptionFloor.html.twig', ['game' => $player] );
@@ -315,7 +383,18 @@ class GameController extends AbstractController
 
     public function firstFloorEvent()
     {
+        if (empty($_SESSION)) {
+            header("Location:/login/signUp");
+            die();
+        }
         $id = $_POST['id'];
         header("Location:/game/event/$id");
+    }
+    public function pantheon()
+    {
+        $gameManager = new GameManager();
+        $pantheon = $gameManager->selectTheBestPlayers();
+        //var_dump($pantheon);
+        return $this->twig->render('Pantheon/index.html.twig', ['pantheon' => $pantheon] );
     }
 }

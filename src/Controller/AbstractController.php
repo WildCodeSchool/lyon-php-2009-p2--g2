@@ -38,5 +38,8 @@ abstract class AbstractController
             ]
         );
         $this->twig->addExtension(new DebugExtension());
+        if (isset($_SESSION['userId'])) {
+            $this->twig->addGlobal("session", $_SESSION);
+        }
     }
 }

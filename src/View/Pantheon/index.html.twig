@@ -1,0 +1,22 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheet %}{% endblock %}
+
+{% block title %}
+    PANTHEON
+{% endblock %}
+
+{% block content %}
+   <div class="pantheon">
+        {% for game in pantheon %}
+            <div class="item_pantheon">
+                <div>{{ game.name }}</div>
+                <div><img src="{{ game.image }}"></div>
+                <div class="circle">Floor {{ game.max_floor }} <br /> Level {{ game.event_count }}</div>
+                <div class="square">Player {{ game.username }}</div>
+            </div>
+        {% endfor %}
+   </div>
+{% endblock %}
+
+{% block javascript %}{% endblock %}

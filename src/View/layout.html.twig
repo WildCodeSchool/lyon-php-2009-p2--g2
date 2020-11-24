@@ -26,6 +26,14 @@
                     <li class="nav-item"><a class="nav-link" href="#">Credits</a></li>
                 </ul>
             </div>
+            {% if session.userId %}
+                <a class="logButton logOut" href="/login/logOut">Log Out</a>
+            {% else %}
+                <div class="logNavBar">
+                    <a class="logButton" href="/login/signUp">Sign Up !</a>
+                    <a class="logButton" href="/login/logIn">Log In !</a>
+                </div>
+            {% endif %}
         </nav>
         {% block content %}{% endblock %}
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
