@@ -6,29 +6,121 @@
 *
 */
 
-.navbar {
-    margin-bottom: 0px;
+#navbarSupportedContent {
+    background-color: #2a4f5f;
 }
 
-.flexbox-container {
+.bg-light {
+    background-color: #2a4f5f !important;
+}
+
+a.navbar-brand:hover {
+    color: #010305 !important;
+    text-shadow: 1px 1px 2px #84adca, 0 0 1em #3f7a92, 0 0 0.2em #6583a9;
+}
+
+a.navbar-brand {
+    font-weight: bold;
+    text-shadow: 1px 1px 2px #223541, 0 0 1em #060810, 0 0 0.2em #1a3740;
+}
+
+.navbar-light .navbar-brand {
+    color: white;
+}
+
+nav .navbar-nav li a{
+    color: white !important;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px #223541, 0 0 1em #060810, 0 0 0.2em #1a3740;
+}
+
+nav .navbar-nav li a:hover{
+    color: #010305 !important;
+    text-shadow: 1px 1px 2px #84adca, 0 0 1em #3f7a92, 0 0 0.2em #6583a9;
+}
+
+.navbar {
+    margin-bottom: 0px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #353a4c;
+    border-bottom: 2px solid black;
+    padding: 5px 15px;
 }
 
 #fbc1 .btn-group-vertical>.btn {
     font-size: 25px;
 }
 
-#fbc2 .btn-group-vertical>.btn {
-    font-size: 20px;
+.homeLink {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
-#main-btn {
-    margin: 20px;
+.homeLink:hover {
+    text-decoration: none;
+    color: azure;
 }
 
-.btn-group-vertical>.btn {
-    margin-bottom: 15px;
+.navTitle {
+    color: white;
+    text-decoration: none;
+    font-size: 1.4em;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 5px;
+    text-shadow: 1px 1px 5px black;
+}
+
+.logoNav {
+    max-width: 70px;
+}
+
+.linkList {
+    margin: 15px;
+}
+
+.logNavBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logButton {
+    padding: 5px 15px;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #2f6270;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 9px #1a333c;
+    margin-bottom: 10px;
+}
+
+.logButton:hover {
+    background-color: #71b1c8;
+    text-decoration: none;
+    color: black;
+}
+
+.logButton:active {
+    background-color: #3e6772;
+    box-shadow: 0 5px #353a4c;
+    transform: translateY(4px);
+}
+
+#burgerIcon {
+    width: 35px;
+    height: 35px;
+}
+
+.burgerMenu {
+    background-color: #353a4c;
+    border-bottom: 2px solid black;
 }
 
 /*
@@ -55,37 +147,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.logNavBar {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.logButton {
-    padding: 5px 15px;
-    font-size: 18px;
-    text-align: center;
-    text-decoration: none;
-    color: #fff;
-    background-color: #62a2b5;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 9px #527888;
-    margin-bottom: 10px;
-}
-
-.logButton:hover {
-    background-color: #3e6772;
-    text-decoration: none;
-    color : white;
-}
-
-.logButton:active {
-    background-color: #3e6772;
-    box-shadow: 0 5px #353a4c;
-    transform: translateY(4px);
 }
 
 /*
@@ -139,24 +200,30 @@
     padding: 0;
     margin: auto;
 }
+
 th {
     width: 42px;
     height: 42px;
 }
+
 .image-item {
     width: 42px;
     height: 42px;
 }
+
 .image-character {
     width: 65px;
     height: 65px;
 }
+
 .text-power{
     font-size: x-small;
 }
+
 .div-items{
     align-self: center;
 }
+
 .div-character{
     display: flex;
     flex-direction: column;
@@ -187,6 +254,10 @@ th {
     width: 90vw;
 }
 
+#eventShape {
+    border: thick double #527888ee;
+    margin: 15px;
+}
 
 @media only screen and (min-width: 900px) {
     th {
@@ -297,16 +368,18 @@ th {
     padding: 15px 25px;
     font-size: 24px;
     text-align: center;
-    color: #fff;
-    background-color: #62a2b5;
+    color: #050000;
+    background-color: #438292;
     border: none;
     border-radius: 15px;
-    box-shadow: 0 9px #527888;
+    box-shadow: 0 9px #1f363e;
     margin-bottom: 50px;
+    font-weight: bold;
 }
 
 .fightButton:hover {
-    background-color: #3e6772;
+    background-color: #74c3d7;
+    color: #101f26;
 }
 
 .fightButton:active {
@@ -910,4 +983,150 @@ input[type=number] {
     font-size: 2em;
     border-radius: 25px;
     margin-bottom: 50px;
+}
+/*
+*
+* ==========================================
+* Pantheon Page
+* ==========================================
+*
+*/
+.circle {
+    margin:10px;
+    width:110px;
+    background:#FF0000;
+    text-align:center;
+    border-radius:100px;
+    line-height:15px;
+    height:110px;
+    padding-top:40px;
+}
+.square {
+    display: flex;
+    box-sizing: content-box;
+    width: 100px;
+    height: 50px;
+    border: solid #5B6DCD 10px;
+    text-align: center;
+    align-items: center;
+}
+.item_pantheon{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.pantheon{
+    text-align: center;
+    background-image: url("../images/background/backgroundOffice.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+*
+* ==========================================
+* How to play Page
+* ==========================================
+*
+*/
+
+.rulesPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-image: url("../images/background/tenor.gif");
+    background-color: #03090e;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #aecbe2;
+    text-shadow: 1px 1px 2px #132128, 0 0 1em #0b1011, 0 0 0.2em #101e2b;
+}
+
+.rulesPage h1 {
+    color: #89c3d4;
+    text-shadow: 1px 1px 2px #1a3e58, 0 0 1em #13191c, 0 0 0.2em #6583a9;
+    font-weight: bold;
+}
+
+.rulesPage h4 {
+    font-weight: bold;
+}
+
+#rlp1 {
+    border: thick double #527888ee;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 15px;
+}
+
+#rules {
+    border: none;
+    border-top: 3px double #102937;
+    color: #102937;
+    overflow: visible;
+    text-align: center;
+    height: 5px;
+}
+
+#rules::after {
+    background: transparent;
+    content: '• • •';
+    padding: 0 4px;
+    position: relative;
+    top: -13px;
+}
+
+h2 {
+    font-weight: bold;
+}
+/*
+*
+* ==========================================
+* Score Page
+* ==========================================
+*
+*/
+
+.score{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 80%;
+    align-content: center;
+
+}
+.name_image{
+    display: flex;
+    flex-direction: column;
+    width: 50px;
+}
+
+.items_score{
+    display: flex;
+    width: 70%;
+    height: 100px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.game_score{
+    display: flex;
+    height: 300px;
+    justify-content: space-between;
+    flex-direction: row;
+    align-content: center;
+}
+
+.item_image{
+    width: 80px;
+    height: 80px;
+}
+.divider {
+    border-bottom: 3px solid black;
+    margin: 3px
 }

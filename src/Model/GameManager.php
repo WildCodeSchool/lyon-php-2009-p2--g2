@@ -20,6 +20,7 @@ class GameManager extends AbstractManager
      *
      */
     private const TABLE = 'game';
+    private const TABLE2 = 'user';
 
     /**
      *  Initializes this class.
@@ -68,7 +69,7 @@ class GameManager extends AbstractManager
 
     public function  levelUp(array $update): int
     {
-        $statement = $this->pdo->prepare ( "UPDATE " . self::TABLE . " SET strength = strength + :strength, energy = energy + :energy, humor = humor + :humor, agility = agility + :agility, max_floor = :max_floor, save = :save WHERE id=:id" );
+        $statement = $this->pdo->prepare ( "UPDATE " . self::TABLE . " SET strength = strength + :strength, energy = energy + :energy, humor = humor + :humor, agility = agility + :agility, max_floor = :max_floor, save = :save, event_count = 0 WHERE id=:id" );
         $statement->bindValue ( 'id', $update['id'], \PDO::PARAM_INT );
         $statement->bindValue ( ':strength', $update['strength'], \PDO::PARAM_INT );
         $statement->bindValue ( ':energy', $update['energy'], \PDO::PARAM_INT );
@@ -117,5 +118,29 @@ class GameManager extends AbstractManager
         $statement->bindValue(':idGame', $idGame, \PDO::PARAM_INT);
         $statement->execute();
         return $statement->fetch();
+    }
+    public function selectTheBestPlayers()
+    {
+        //select u.username, g.id, g.name, g.image, g.max_floor, g.event_count from game g
+        //inner join user u order by max_floor desc,event_count desc;
+        $query = "SELECT u.username, g.id, g.name, g.image, g.max_floor, g.event_count ";
+        $query .= "FROM " . $this->table . " g ";
+        $query .= "INNER JOIN " . self::TABLE2 . " u ON u.id = g.user_id ";
+        $query .= "WHERE g.is_ended = 1 ";
+        $query .= "order by max_floor desc, event_count desc";
+        $statement = $this->pdo->query($query);
+        return $statement->fetchAll();
+    }
+    public function selectUserScore($id)
+    {
+        $query = "SELECT id, name, image, max_floor, event_count ";
+        $query .= "FROM " . $this->table;
+        $query .= " WHERE user_id = :id ";
+        $query .= "order by max_floor desc, event_count desc ";
+        $query .= "LIMIT 5";
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue(':id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetchAll();
     }
 }
