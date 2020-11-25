@@ -237,13 +237,18 @@ th {
     padding: 15px 25px;
     font-size: 20px;
     text-align: center;
-    color: #fff;
+    color: white;
     background-color: #62a2b5;
     border: none;
     border-radius: 15px;
-    box-shadow: 0 9px #527888;
+    box-shadow: 0 9px #365c6d;
     margin-bottom: 15px;
     white-space: normal;
+}
+
+.eventButton:hover {
+    background-color: #1b4f64;
+    color: #d0faff;
 }
 
 .eventImage {
@@ -1199,4 +1204,10 @@ input[type=number] {
 
 h2 {
     font-weight: bold;
+    color: #113748;
+}
+
+#event-span {
+    font-weight: bold;
+    color: #113748;
 }
