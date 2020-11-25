@@ -93,4 +93,17 @@ class ItemManager extends AbstractManager
         $statement->execute();
         return $statement->fetch();
     }
+
+    public function selectItemsByUser($idUser)
+    {
+        $query = "select i.id, i.name, i.image, i.strength, i.energy, i.humor, i.agility, gi.game_id ";
+        $query .= "from " . $this->table . " i inner join " . self::TABLE2 . " gi ";
+        $query .= "ON i.id = gi.item_id ";
+        $query .= "where game_user_id = :id ";
+        $query .= "order by gi.game_id";
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue('id', $idUser, \PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetchAll();
+    }
 }

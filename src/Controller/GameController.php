@@ -43,7 +43,7 @@ class GameController extends AbstractController
             header("Location:/login/signUp");
             die();
         }
-        return $this->twig->render('Character/character.html.twig' );
+        return $this->twig->render('Character/character.html.twig');
     }
 
     /**
@@ -193,7 +193,7 @@ class GameController extends AbstractController
             if ($_POST['strength'] > 2 || $_POST['energy'] > 2 || $_POST['humor'] > 2 || $_POST['agility'] > 2) {
                 $errors['stats'] = "Apparently you're trying to set more points than awarded...";
             }
-            if (!empty( $errors )) {
+            if (!empty($errors)) {
                 return $this->twig->render('Elevator/elevator.html.twig', ['errors' => $errors]);
             } else {
                 $gameManager = new GameManager();
@@ -226,6 +226,7 @@ class GameController extends AbstractController
             $game['is_ended'] = 1;
         }
         $user = (new UserManager())->selectOneById($userId);
+
         return $this->twig->render('Game/menu.html.twig', [
             'game' => $game,
             'user' => $user
@@ -335,7 +336,7 @@ class GameController extends AbstractController
         $countItems = $newSumItems->countItems($idGame);
         //If he has less than 6 items, he has a change over 3 to win a new item
         if ($countItems < 6) {
-            $draw = rand(0, 2);
+            $draw = rand(0, 1);
             if ($draw == 0) {
                 //Take an item that the player does not yet have at random.
                 $newItem = new ItemManager();
@@ -374,18 +375,16 @@ class GameController extends AbstractController
     {
         if (empty($_SESSION)) {
             header("Location:/login/signUp");
-            die();
         }
         $game = new GameManager();
         $player = $game->selectOneById($id);
-        return $this->twig->render('Game/descriptionFloor.html.twig', ['game' => $player] );
+        return $this->twig->render('Game/descriptionFloor.html.twig', ['game' => $player]);
     }
 
     public function firstFloorEvent()
     {
         if (empty($_SESSION)) {
             header("Location:/login/signUp");
-            die();
         }
         $id = $_POST['id'];
         header("Location:/game/event/$id");
@@ -395,6 +394,17 @@ class GameController extends AbstractController
         $gameManager = new GameManager();
         $pantheon = $gameManager->selectTheBestPlayers();
         //var_dump($pantheon);
-        return $this->twig->render('Pantheon/index.html.twig', ['pantheon' => $pantheon] );
+        return $this->twig->render('Pantheon/index.html.twig', ['pantheon' => $pantheon]);
+    }
+    public function score($idUser)
+    {
+        $gameManager = new GameManager();
+        $score = $gameManager->selectUserScore($idUser);
+        $itemManager = new ItemManager();
+        $items = $itemManager->selectItemsByUser($idUser);
+        return $this->twig->render('Game/score.html.twig', [
+            'score' => $score,
+            'items' => $items,
+        ]);
     }
 }

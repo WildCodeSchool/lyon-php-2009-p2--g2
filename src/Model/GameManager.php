@@ -126,8 +126,21 @@ class GameManager extends AbstractManager
         $query = "SELECT u.username, g.id, g.name, g.image, g.max_floor, g.event_count ";
         $query .= "FROM " . $this->table . " g ";
         $query .= "INNER JOIN " . self::TABLE2 . " u ON u.id = g.user_id ";
+        $query .= "WHERE g.is_ended = 1 ";
         $query .= "order by max_floor desc, event_count desc";
         $statement = $this->pdo->query($query);
+        return $statement->fetchAll();
+    }
+    public function selectUserScore($id)
+    {
+        $query = "SELECT id, name, image, max_floor, event_count ";
+        $query .= "FROM " . $this->table;
+        $query .= " WHERE user_id = :id ";
+        $query .= "order by max_floor desc, event_count desc ";
+        $query .= "LIMIT 5";
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue(':id', $id, \PDO::PARAM_INT);
+        $statement->execute();
         return $statement->fetchAll();
     }
 }
