@@ -526,6 +526,10 @@ input[type=number] {
 *
 */
 
+.miniElevator {
+    height: 100px;
+}
+
 .elevatorFrame {
     background-image: url("../images/background/doorsFrame.jpg");
     background-repeat: no-repeat;

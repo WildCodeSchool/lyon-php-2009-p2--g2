@@ -393,7 +393,6 @@ class GameController extends AbstractController
     {
         $gameManager = new GameManager();
         $pantheon = $gameManager->selectTheBestPlayers();
-        //var_dump($pantheon);
         return $this->twig->render('Pantheon/index.html.twig', ['pantheon' => $pantheon]);
     }
     public function score($idUser)

@@ -136,12 +136,14 @@ const leftDoor = document.querySelector("#leftDoor");
 const rightDoor = document.querySelector("#rightDoor");
 const medal = document.querySelector(".medal");
 const next = document.querySelector(".fightButton");
+const page = document.querySelector('#elevatorPage')
 
 rightDoor.addEventListener("click", function()
     {
         rightDoor.classList.add("active-right");
         leftDoor.classList.add("active-left");
         medal.style.visibility = "visible";
+        page.classList.remove("miniElevator");
     }
 );
 
@@ -150,6 +152,7 @@ leftDoor.addEventListener("click", function()
         rightDoor.classList.add("active-right");
         leftDoor.classList.add("active-left");
         medal.style.visibility = "visible";
+        page.classList.remove("miniElevator");
     }
 );
 
