@@ -1017,6 +1017,10 @@ input[type=number] {
     justify-content: space-around;
 }
 .pantheon{
+    text-align: center;
+    background-image: url("../images/background/backgroundOffice.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
 }
