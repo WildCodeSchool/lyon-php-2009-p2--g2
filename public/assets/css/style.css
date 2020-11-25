@@ -196,7 +196,7 @@ nav .navbar-nav li a:hover{
 }
 
 .items, th, td {
-    border: 2px solid black;
+    border: 2px solid #0c2232;
     padding: 0;
     margin: auto;
 }
@@ -261,17 +261,105 @@ th {
 
 @media only screen and (min-width: 900px) {
     th {
-        width: 50px;
-        height: 50px;
+        width: 100px;
+        height: 100px;
     }
     .image-item {
-        width: 50px;
-        height: 50px;
-    }
-    .image-character {
         width: 80px;
         height: 80px;
     }
+    .image-character {
+        width: 210px;
+        height: 210px;
+    }
+}
+
+.text-power {
+    font-weight: bold;
+    font-size: 19px;
+    color: #10313e !important;
+}
+
+#charBox {
+    display: flex;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 23px;
+    color: #10313e;
+    margin: auto;
+}
+
+.flex-grid {
+    display: flex;
+    flex-wrap: wrap;
+    height: 200px;
+    width: 20%;
+    margin: auto;
+}
+
+.grid-item {
+    flex: 1 1 calc(50% - 10px);
+    border-top: solid 1px #000;
+    width: 50%;
+}
+
+#gi1 {
+    background-image: url("/assets/images/icones/strength.png");
+    background-size: 75px;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-weight: bold;
+    text-align: center;
+    color: #0b1011;
+    font-size: 15px;
+}
+
+#gi2 {
+    background-image: url("/assets/images/icones/energy.png");
+    background-size: 75px;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-weight: bold;
+    text-align: center;
+    color: #0b1011;
+    font-size: 15px;
+}
+
+#gi3 {
+    background-image: url("/assets/images/icones/humor.png");
+    background-size: 75px;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-weight: bold;
+    text-align: center;
+    color: #0b1011;
+    font-size: 15px;
+}
+
+#gi4 {
+    background-image: url("/assets/images/icones/agility.png");
+    background-size: 75px;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-weight: bold;
+    text-align: center;
+    color: #0b1011;
+    font-size: 18px;
+    text-shadow: 1px 1px 2px #ffffff;
+}
+
+.grid-item:nth-child(odd) {
+    flex: 50%;
+}
+
+.col-7 {
+    max-width: 30%;
+    margin-right: auto;
+}
+
+.col-5 {
+    margin-left: auto;
+    text-align: center;
 }
 
 /*
