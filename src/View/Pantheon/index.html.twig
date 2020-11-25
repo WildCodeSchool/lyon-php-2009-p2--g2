@@ -15,6 +15,9 @@
                     <img src="/upload/{{ game.image }}">
                 </div>
                 <div class="circle">Floor {{ game.max_floor }} <br/> Level {{ game.event_count }}</div>
+                <div>{{ game.name }}</div>
+                <div><img src="/upload/{{ game.image }}"></div>
+                <div class="circle">Floor {{ game.max_floor }} <br /> Level {{ game.event_count }}</div>
                 <div class="square">Player {{ game.username }}</div>
             </div>
         {% endfor %}
