@@ -1,5 +1,6 @@
-.bg {
-    background-image: url("../images/background/about_bg.jpg");
+body {
+    background: url("../images/background/about_bg.jpg") fixed;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
