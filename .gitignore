@@ -1,5 +1,5 @@
 /vendor/
-/public/upload/
+/public/upload/.png
 /temp/*
 .phpcs-cache
 *.cache
