@@ -1,16 +1,22 @@
-<div class="row">
-    <div class="col-5">
-        <div class="row">
-            <div class="col-6 div-character">
-                <span class="text-power text-secondary">Str: {{ game.strength }}</span>
-                <span class="text-power text-secondary">Ene: {{ game.energy }}</span>
-                <span class="text-power power text-secondary">Hum: {{ game.humor }}</span>
-                <span class="text-power text-secondary">Agi: {{ game.agility }}</span>
-            </div>
-            <div class="col-6 div-power">
-                <div>{{ game.name }}</div>
-                <div><img class="image-character" src="/upload/{{ game.image }}" alt="Character's avatar"></div>
-            </div>
+<div class="row" id="upperCharBox">
+    <div class="col-5" id="charBox">
+        <div class="col-6 div-power">
+            <div><img class="image-character" src="/upload/{{ game.image }}" alt="Character's avatar"></div>
+            <div>{{ game.name }}</div>
+        </div>
+    </div>
+    <div class="flex-grid">
+        <div class="grid-item" id="gi1">
+            {{ game.strength }}<br><br><br><br><br>
+        </div>
+        <div class="grid-item" id="gi2">
+            {{ game.energy }}<br><br><br><br><br>
+        </div>
+        <div class="grid-item" id="gi3">
+            {{ game.humor }}<br><br><br><br><br>
+        </div>
+        <div class="grid-item" id="gi4">
+            {{ game.agility }}<br><br><br><br><br>
         </div>
     </div>
     <div class="col-7 div-items">
