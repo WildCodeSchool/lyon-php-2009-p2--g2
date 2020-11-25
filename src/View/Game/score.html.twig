@@ -5,12 +5,12 @@
 {% block title %}{% endblock %}
 
 {% block content %}
-    <div class="score">
+    <div class="pantheon">
         {% for game in score %}
-            <div class="game_score">
-                <div class="name_image" >
-                    {{ game.name }}
-                    <img  src="/upload/{{ game.image }}">
+            <div class="item_pantheon">
+                <div class="pantheonAvatar">
+                    <div class="pantheon-name">{{ game.name }}</div>
+                    <div><img class="pantheonImage" src="/upload/{{ game.image }}"></div>
                 </div>
                 <div class="circle">
                     Floor {{ game.max_floor }} <br /> Level {{ game.event_count }}
@@ -22,9 +22,7 @@
                                 <div>{{ item.name }}</div>
                                 <div><img class="item_image" src="{{ item.image }}"></div>
                             </div>
-
                         {% endif %}
-
                     {% endfor %}
                 </div>
             </div>

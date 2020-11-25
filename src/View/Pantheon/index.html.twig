@@ -10,8 +10,10 @@
    <div class="pantheon">
         {% for game in pantheon %}
             <div class="item_pantheon">
-                <div id="pantheon-name">{{ game.name }}</div>
-                <div><img src="/upload/{{ game.image }}"></div>
+                <div class="pantheonAvatar">
+                    <div class="pantheon-name">{{ game.name }}</div>
+                    <div><img class="pantheonImage" src="/upload/{{ game.image }}"></div>
+                </div>
                 <div class="circle">Floor {{ game.max_floor }} <br><br> Level {{ game.event_count }}</div>
                 <div class="square">Player {{ game.username }}</div>
             </div>
