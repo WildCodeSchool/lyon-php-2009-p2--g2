@@ -12,7 +12,7 @@
     {% block stylesheet %}{% endblock %}
 </head>
     <body>
-        <nav class=" navbar-dark" id="navbar">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-light" id="navbar">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon" id="burgerIcon"></span>
             </button>
@@ -21,11 +21,11 @@
                 <div class="navTitle">Office <br>Warriors</div>
             </a>
             {% if session.userId %}
-                <a class="logButton logOut" href="/login/logOut">Log Out</a>
+                <a class="logButton logOut" href="/login/logOut">Log out</a>
             {% else %}
                 <div class="logNavBar">
-                    <a class="logButton" href="/login/signUp">Sign Up !</a>
-                    <a class="logButton" href="/login/logIn">Log In !</a>
+                    <a class="logButton" href="/login/signUp">Sign up</a>
+                    <a class="logButton" href="/login/logIn">Log in</a>
                 </div>
             {% endif %}
         </nav>
@@ -34,7 +34,7 @@
                 <li class="linkList"><a class="logButton" href="/Game/menu">Play</a></li>
                 <li class="linkList"><a class="logButton" href="#">Options</a></li>
                 <li class="linkList"><a class="logButton" href="#">Pantheon</a></li>
-                <li class="linkList"><a class="logButton" href="#">How to play</a></li>
+                <li class="linkList"><a class="logButton" href="/Home/rules">How to play</a></li>
                 <li class="linkList"><a class="logButton" href="#">Credits</a></li>
             </ul>
         </div>
