@@ -16,7 +16,7 @@
                         <img class="avatarElevator" src="/upload/{{ game.image }}" alt="player avatar">
                     </div>
                 </div>
-                <div class="circle">Floor {{ game.max_floor }} <br><br> Level {{ game.event_count }}</div>
+                <div class="circle">Floor {{ game.max_floor }}{% if game.max_floor < 4 %} <br><br> Level {{ game.event_count }}{% endif %}</div>
                 <div class="square">Player {{ game.username }}</div>
             </div>
         {% endfor %}

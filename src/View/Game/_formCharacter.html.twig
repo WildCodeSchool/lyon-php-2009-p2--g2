@@ -1,5 +1,5 @@
-<div class="row" id="upperCharBox">
-    <div class="col-5 charBox">
+<div class="charEventCol" id="upperCharBox">
+    <div class="charBox">
         <div class="imageUploader">
             <div class="frameBackgroundElevator{{ game.max_floor }}">
                 <img class="avatarElevator" id="output" src="/upload/{{ game.image }}" alt="player avatar">
@@ -23,7 +23,7 @@
             {{ game.agility }}<br><br><br><br><br>
         </div>
     </div>
-    <div class="col-7 div-items">
+    <div class="div-items">
        <table class="items">
           {% set index = 0 %}
           {% for i in 0..1 %}
