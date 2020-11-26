@@ -241,10 +241,7 @@ class GameController extends AbstractController
         }
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST)) {
             $action = $_POST;
-            //'action_id' => string '4' (length=1)
-            //'event_id' => string '1' (length=1)
-            // 'game_id' => string '2' (length=1)
-            //Take all player information
+             //Take all player information
             $newPlayer = new GameManager();
             $player = $newPlayer->selectOneById($action['game_id']);
             //Take all event information
@@ -253,7 +250,6 @@ class GameController extends AbstractController
             $newAction = new ActionManager();
             $actionDb = $newAction->selectOneById($action['action_id']);
             $power = $actionDb['stat'];
-            echo $power;
             //Compares the power of the event with the power of the player
             if ($player[$power] >= $event[$power]) {
                 //If he won:
@@ -272,6 +268,11 @@ class GameController extends AbstractController
                     $player = $newPlayer->selectOneById($player['id']);
                     //check if the player will win a new item or not;
                     $playerItem = $this->newItemPlayer($player['id']);
+                    if (!empty($playerItem)) {
+                        $itemManager = new ItemManager();
+                        $itemManager->insertItem($player['id'], $player['user_id'], $playerItem['id']);
+                        $newPlayer->updatePlayerPower($playerItem, $player['id']);
+                    }
                     //Redirect the player to the victory page
                     return $this->twig->render('Game/victory.html.twig', [
                         'game' => $player,
@@ -280,7 +281,7 @@ class GameController extends AbstractController
                         ]);
                 } else {
                     //If he has 2 events:
-                    //Registrar o evento no ascencer en questao
+                    //Record the event in the elevator.
                     $newGameEvent = new GameEventManager();
                     $newGameEvent->insertGameEvent($player['id'], $player['user_id'], $event['id']);
                     if ($player['max_floor'] == 1 || $player['max_floor'] == 2 || $player['max_floor'] == 3) {
@@ -326,16 +327,13 @@ class GameController extends AbstractController
 
     public function newItemPlayer($idGame)
     {
-        if (empty($_SESSION)) {
-            header("Location:/login/signUp");
-            die();
-        }
         $playerItem = [];
         //Checks how many items the player has
         $newSumItems = new ItemManager();
         $countItems = $newSumItems->countItems($idGame);
-        //If he has less than 6 items, he has a change over 3 to win a new item
-        if ($countItems < 6) {
+        $intCountItems = (int)$countItems['items'];
+        //If he has less than 6 items, he has a change over 2 to win a new item
+        if ($intCountItems < 6) {
             $draw = rand(0, 1);
             if ($draw == 0) {
                 //Take an item that the player does not yet have at random.
@@ -397,6 +395,10 @@ class GameController extends AbstractController
     }
     public function score($idUser)
     {
+        if (empty($_SESSION)) {
+            header("Location:/login/signUp");
+            die();
+        }
         $gameManager = new GameManager();
         $score = $gameManager->selectUserScore($idUser);
         $itemManager = new ItemManager();

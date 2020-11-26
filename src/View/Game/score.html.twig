@@ -22,7 +22,7 @@
                         {% if game.id == item.game_id %}
                             <div class="item_score">
                                 <div>{{ item.name }}</div>
-                                <div><img class="item_image" src="{{ item.image }}"></div>
+                                <div><img class="item_image" src="/assets/images/items/{{ item.image }}"></div>
                             </div>
                         {% endif %}
                     {% endfor %}

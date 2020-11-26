@@ -31,7 +31,7 @@
                   {% for j in 0..2 %}
                       {%if items[index].image is defined %}
                           <th class="column-item">
-                              <img class="image-item" alt="{{ items[index].name }}" title="Str: {{ items[index].strength }}, Ene: {{ items[index].energy }}, Hum: {{ items[index].humor }}, Agi: {{ items[index].agility }}" src="{{ items[index].image }}">
+                              <img class="image-item" alt="{{ items[index].name }}" title="Str: {{ items[index].strength }}, Ene: {{ items[index].energy }}, Hum: {{ items[index].humor }}, Agi: {{ items[index].agility }}" src="/assets/images/items/{{ items[index].image }}">
                           </th>
                       {% else %}
                           <th> </th>

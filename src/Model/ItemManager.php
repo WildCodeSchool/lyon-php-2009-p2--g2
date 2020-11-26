@@ -87,9 +87,9 @@ class ItemManager extends AbstractManager
         //WHERE id NOT IN (SELECT item_id FROM game_has_item where game_id = 3)
         // ORDER BY RAND() LIMIT 1;
         $query = "SELECT * FROM " . self::TABLE . " WHERE id NOT IN (SELECT item_id FROM ";
-        $query .= self::TABLE2 . "WHERE game_id = :idGame) ORDER BY RAND() LIMIT 1";
+        $query .= self::TABLE2 . " WHERE game_id = :idGame) ORDER BY RAND() LIMIT 1";
         $statement = $this->pdo->prepare($query);
-        $statement->bindValue('game_id', $idGame, \PDO::PARAM_INT);
+        $statement->bindValue('idGame', $idGame, \PDO::PARAM_INT);
         $statement->execute();
         return $statement->fetch();
     }
@@ -105,5 +105,17 @@ class ItemManager extends AbstractManager
         $statement->bindValue('id', $idUser, \PDO::PARAM_INT);
         $statement->execute();
         return $statement->fetchAll();
+    }
+    /**
+     *
+     */
+    public function insertItem($idGame, $idUser, $idItem)
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE2 . " (game_id, game_user_id, item_id) VALUES (:idGame, :idUser, :idItem)");
+        $statement->bindValue('idGame', $idGame, \PDO::PARAM_INT);
+        $statement->bindValue('idUser', $idUser, \PDO::PARAM_INT);
+        $statement->bindValue('idItem', $idItem, \PDO::PARAM_INT);
+        $statement->execute();
     }
 }
