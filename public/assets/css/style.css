@@ -251,11 +251,11 @@ th {
 }
 
 .eventImage {
-    width: 90vw;
+    width: 80vw;
 }
 
 .eventChoices {
-    width: 90vw;
+    width: 80vw;
 }
 
 #eventShape {
@@ -373,6 +373,17 @@ th {
 .col-5 {
     margin-left: auto;
     text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .charEventCol {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .div-items {
+        margin-top: 25px;
+    }
 }
 
 /*
