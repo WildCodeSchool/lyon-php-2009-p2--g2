@@ -10,7 +10,9 @@
             <div class="item_pantheon">
                 <div class="pantheonAvatar">
                     <div class="pantheon-name">{{ game.name }}</div>
-                    <div><img class="pantheonImage" src="/upload/{{ game.image }}"></div>
+                    <div class="frameBackgroundElevator{{ game.max_floor }}">
+                        <img class="avatarElevator" src="/upload/{{ game.image }}" alt="player avatar">
+                    </div>
                 </div>
                 <div class="circle">
                     Floor {{ game.max_floor }} <br /> Level {{ game.event_count }}

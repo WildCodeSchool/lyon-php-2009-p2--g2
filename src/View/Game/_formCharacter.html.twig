@@ -1,8 +1,12 @@
 <div class="row" id="upperCharBox">
-    <div class="col-5" id="charBox">
-        <div class="col-6 div-power">
-            <div><img class="image-character" src="/upload/{{ game.image }}" alt="Character's avatar"></div>
-            <div>{{ game.name }}</div>
+    <div class="col-5 charBox">
+        <div class="imageUploader">
+            <div class="frameBackgroundElevator{{ game.max_floor }}">
+                <img class="avatarElevator" id="output" src="/upload/{{ game.image }}" alt="player avatar">
+            </div>
+            <div class="namePlateElevator eventPlate">
+                <h2>{{ game.name }}</h2>
+            </div>
         </div>
     </div>
     <div class="flex-grid">
