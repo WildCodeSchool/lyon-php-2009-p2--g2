@@ -143,4 +143,15 @@ class GameManager extends AbstractManager
         $statement->execute();
         return $statement->fetchAll();
     }
+    public function updatePlayerPower(array $item, $idGame)
+    {
+        // prepared request
+        $query = "UPDATE " . $this->table . " SET strength = strength + " . $item['strength'];
+        $query .= " , energy = energy + " . $item['strength'] . ", humor = humor + " . $item['humor'];
+        $query .= " , agility = agility + " . $item['agility'];
+        $query .= " WHERE id=:id";
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue('id', $idGame, \PDO::PARAM_INT);
+        $statement->execute();
+    }
 }
