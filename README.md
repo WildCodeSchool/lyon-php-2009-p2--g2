@@ -1,5 +1,11 @@
-# Simple MVC
+# Office warriors
+## Installation
 
+In addition of the simple MVC procedure, load the two sql files (MySQL) :
+- first DBCreation.sql
+- then DBData.sql
+
+# Simple MVC
 ## Description
 
 This repository is a simple PHP MVC structure from scratch.
