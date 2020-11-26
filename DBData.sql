@@ -32,13 +32,32 @@ INSERT INTO item (
     humor,
     agility
   ) VALUES (
-    "tasse à café",
-    "https://via.placeholder.com/150",
-    "1",
-    "2",
-    "0",
-    "-1"
-  );
+	"Pencil","pencil.png","1","-1","1","0"
+	), (
+	"Mug","mug.png","0","1","0","1"
+	), (
+	"Stapler","stapler.png","2","-1","1","1"
+	), (
+	"Hole punch","hole_punch.png","1","0","0","1"
+	), (
+	"Agreement","agreement.png","-2","1","1","0"
+	), (
+	"Smartphone","smartphone.png","0","0","2","-1"
+	), (
+	"Typing","tiping.png","1","-1","-1","2"
+	), (
+	"Clip","clip.png","0","0","0","1"
+	), (
+	"Notes","notes.png","2","0","-1","1"
+	), (
+	"Mouse","mouse.png","-2","2","0","0"
+	), (
+	"Scissors","scissors.png","0","1","0","-2"
+	), (
+	"Password","password.png","3","0","-1","0"
+	), (
+	"Glue","glue.png","-1","0","2","0"			
+	);
 
 -- -----------------------------------------------------
 -- Table `event`
