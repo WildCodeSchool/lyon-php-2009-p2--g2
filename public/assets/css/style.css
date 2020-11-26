@@ -306,7 +306,7 @@ th {
     display: flex;
     flex-wrap: wrap;
     height: 200px;
-    width: 20%;
+    width: 30%;
     margin: auto;
 }
 
@@ -365,14 +365,11 @@ th {
     flex: 50%;
 }
 
-.col-7 {
-    max-width: 30%;
-    margin-right: auto;
-}
-
-.col-5 {
-    margin-left: auto;
-    text-align: center;
+.charEventCol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
 }
 
 @media only screen and (max-width: 600px) {
