@@ -1,0 +1,26 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheet %}{% endblock %}
+
+{% block title %}
+    Pantheon
+{% endblock %}
+
+{% block content %}
+   <div class="pantheon">
+        {% for game in pantheon %}
+            <div class="item_pantheon">
+                <div class="pantheonAvatar">
+                    <div class="pantheon-name">{{ game.name }}</div>
+                    <div class="frameBackgroundElevator{{ game.max_floor }}">
+                        <img class="avatarElevator" src="/upload/{{ game.image }}" alt="player avatar">
+                    </div>
+                </div>
+                <div class="circle">Floor {{ game.max_floor }}{% if game.max_floor < 4 %} <br><br> Level {{ game.event_count }}{% endif %}</div>
+                <div class="square">Player {{ game.username }}</div>
+            </div>
+        {% endfor %}
+   </div>
+{% endblock %}
+
+{% block javascript %}{% endblock %}

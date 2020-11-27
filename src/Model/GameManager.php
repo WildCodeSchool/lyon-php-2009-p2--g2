@@ -20,6 +20,7 @@ class GameManager extends AbstractManager
      *
      */
     private const TABLE = 'game';
+    private const TABLE2 = 'user';
 
     /**
      *  Initializes this class.
@@ -36,7 +37,7 @@ class GameManager extends AbstractManager
      */
     public function newGame(array $character): int
     {
-        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (name, image, strength, energy, humor, agility, max_floor, event_count, save, is_ended, user_id) VALUES (:name, :image, :strength, :energy, :humor, :agility, 1, 0, :save, FALSE, 1)");
+        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (name, image, strength, energy, humor, agility, max_floor, event_count, save, is_ended, user_id) VALUES (:name, :image, :strength, :energy, :humor, :agility, 1, 0, :save, FALSE, :user_id)");
         $statement->bindValue(':name', $character['name'], \PDO::PARAM_STR);
         $statement->bindValue(':image', $character['image'], \PDO::PARAM_STR);
         $statement->bindValue(':strength', $character['strength'], \PDO::PARAM_INT);
@@ -44,10 +45,18 @@ class GameManager extends AbstractManager
         $statement->bindValue(':humor', $character['humor'], \PDO::PARAM_INT);
         $statement->bindValue(':agility', $character['agility'], \PDO::PARAM_INT);
         $statement->bindValue(':save', date("Y-m-d H:i:s"), \PDO::PARAM_STR);
+        $statement->bindValue(':user_id', $character['user_id'], \PDO::PARAM_INT);
 
         if ($statement->execute()) {
             return (int)$this->pdo->lastInsertId();
         }
+    }
+
+    public function dropGame($userId)
+    {
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET is_ended = '1' WHERE user_id=:id");
+        $statement->bindValue('id', $userId, \PDO::PARAM_INT);
+        $statement->execute();
     }
 
     public function save(int $id)
@@ -60,7 +69,7 @@ class GameManager extends AbstractManager
 
     public function  levelUp(array $update): int
     {
-        $statement = $this->pdo->prepare ( "UPDATE " . self::TABLE . " SET strength = strength + :strength, energy = energy + :energy, humor = humor + :humor, agility = agility + :agility, max_floor = :max_floor, save = :save WHERE id=:id" );
+        $statement = $this->pdo->prepare ( "UPDATE " . self::TABLE . " SET strength = strength + :strength, energy = energy + :energy, humor = humor + :humor, agility = agility + :agility, max_floor = :max_floor, save = :save, event_count = 0 WHERE id=:id" );
         $statement->bindValue ( 'id', $update['id'], \PDO::PARAM_INT );
         $statement->bindValue ( ':strength', $update['strength'], \PDO::PARAM_INT );
         $statement->bindValue ( ':energy', $update['energy'], \PDO::PARAM_INT );
@@ -74,11 +83,13 @@ class GameManager extends AbstractManager
         }
     }
         
-    public function isEnded($id)
+    public function isEnded($userId)
     {
-        $sql = 'SELECT is_ended FROM game WHERE id = :id;';
+        $sql = 'SELECT is_ended, id FROM ' . self::TABLE . ' WHERE user_id = :id ORDER BY id DESC;';
         $statement = $this->pdo->prepare($sql);
-        $statement->bindValue(':id', $id, \PDO::PARAM_INT);
+        $statement->bindValue(':id', $userId, \PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetch();
     }
 
     public function killPlayer($idGame)
@@ -107,5 +118,40 @@ class GameManager extends AbstractManager
         $statement->bindValue(':idGame', $idGame, \PDO::PARAM_INT);
         $statement->execute();
         return $statement->fetch();
+    }
+    public function selectTheBestPlayers()
+    {
+        //select u.username, g.id, g.name, g.image, g.max_floor, g.event_count from game g
+        //inner join user u order by max_floor desc,event_count desc;
+        $query = "SELECT u.username, g.id, g.name, g.image, g.max_floor, g.event_count ";
+        $query .= "FROM " . $this->table . " g ";
+        $query .= "INNER JOIN " . self::TABLE2 . " u ON u.id = g.user_id ";
+        $query .= "WHERE g.is_ended = 1 ";
+        $query .= "order by max_floor desc, event_count desc";
+        $statement = $this->pdo->query($query);
+        return $statement->fetchAll();
+    }
+    public function selectUserScore($id)
+    {
+        $query = "SELECT id, name, image, max_floor, event_count ";
+        $query .= "FROM " . $this->table;
+        $query .= " WHERE user_id = :id ";
+        $query .= "order by max_floor desc, event_count desc ";
+        $query .= "LIMIT 5";
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue(':id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+    public function updatePlayerPower(array $item, $idGame)
+    {
+        // prepared request
+        $query = "UPDATE " . $this->table . " SET strength = strength + " . $item['strength'];
+        $query .= " , energy = energy + " . $item['strength'] . ", humor = humor + " . $item['humor'];
+        $query .= " , agility = agility + " . $item['agility'];
+        $query .= " WHERE id=:id";
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue('id', $idGame, \PDO::PARAM_INT);
+        $statement->execute();
     }
 }

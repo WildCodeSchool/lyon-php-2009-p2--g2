@@ -1,0 +1,36 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheet %}{% endblock %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+    <div class="pantheon">
+        {% for game in score %}
+            <div class="item_pantheon">
+                <div class="pantheonAvatar">
+                    <div class="pantheon-name">{{ game.name }}</div>
+                    <div class="frameBackgroundElevator{{ game.max_floor }}">
+                        <img class="avatarElevator" src="/upload/{{ game.image }}" alt="player avatar">
+                    </div>
+                </div>
+                <div class="circle">
+                    Floor {{ game.max_floor }} <br><br>  Level {{ game.event_count }}
+                </div>
+                <div class="items_score">
+                    {% for item in items %}
+                        {% if game.id == item.game_id %}
+                            <div class="item_score">
+                                <div>{{ item.name }}</div>
+                                <div><img class="item_image" src="/assets/images/items/{{ item.image }}"></div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <span class="divider"></span>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block javascript %}{% endblock %}

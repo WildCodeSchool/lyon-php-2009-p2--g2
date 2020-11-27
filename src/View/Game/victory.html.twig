@@ -1,0 +1,41 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Victory!{% endblock %}
+
+{% block content %}
+<div class="container-fluid principal">
+    <div class="container">
+        <h1 class="title">Victory!</h1>
+        <img src="/assets/images/event/victory.jpg" class="victoryImage" alt="victory image">
+        <h2 class="title2">{{action.victory}}</h2>
+        {% if item %}
+        <h2 class="title2">You win a new item!</h2>
+        <div class="row justify-content-center victoryContainer">
+            <div class="col-md-4 itemImageContainer">
+                <img src="/assets/images/items/{{ item.image }}" class="victoryItemImage" alt="item image">
+            </div>
+            <div class="col-md-4 itemDisplayer">
+                <div class="row-2 itemStats">
+                    <img class="statIconVictory" src="/assets/images/icones/strength.png" alt="icon of a strong arm">
+                    <p style="{% if item.strength > 0 %}color: green{% endif %}{% if item.strength < 0 %}color: red{% endif %}">{% if item.strength > 0 %}+{% endif %}{{ item.strength }}</p>
+                </div>
+                <div class="row-2 itemStats">
+                    <img class="statIconVictory" src="/assets/images/icones/energy.png" alt="icon of a lightning bolt">
+                    <p style="{% if item.energy > 0 %}color: green{% endif %}{% if item.energy < 0 %}color: red{% endif %}">{% if item.energy > 0 %}+{% endif %}{{ item.energy }}</p>
+                </div>
+                <div class="row-2 itemStats">
+                    <img class="statIconVictory" src="/assets/images/icones/humor.png" alt="icon of a pair of theatre masks">
+                    <p style="{% if item.humor > 0 %}color: green{% endif %}{% if item.humor < 0 %}color: red{% endif %}">{% if item.humor > 0 %}+{% endif %}{{ item.humor }}</p>
+                </div>
+                <div class="row-2 itemStats">
+                    <img class="statIconVictory" src="/assets/images/icones/agility.png" alt="icon of two running mens">
+                    <p style="{% if item.agility > 0 %}color: green{% endif %}{% if item.agility < 0 %}color: red{% endif %}">{% if item.agility > 0 %}+{% endif %}{{ item.agility }}</p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        <div class="row justify-content-center">
+            <a href="/Game/event/{{ game.id }}" class="fightButton menuButton">Next event</a>
+        </div>
+    </div>
+{% endblock %}

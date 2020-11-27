@@ -1,0 +1,41 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheet %}{% endblock %}
+
+{% block title %}
+    How to play
+{% endblock %}
+
+{% block content %}
+<div class="rulesPage">
+    <h1>How to play</h1>
+    <div id="rlp1"><h4>Starting off</h4>
+        <p>As a player, you can make a character and award it 10 points chosen from 4 different skills which are:</p><br>
+            <ul>
+                <li>strength</li>
+                <li>energy</li>
+                <li>humor</li>
+                <li>agility</li>
+            </ul>
+        <hr id="rules">
+    <h4>Events</h4>
+        <p>The game consists of a series of semi-random events. There are 3 different events per office floors. Each of them has its own hidden stats which you must compete against.</p>
+        <p>You may choose either of your skills to face the hidden stats of each event. Once you have chosen your action, your stats are compared with the ones of the event in question.</p>
+        <p>Depending on the outcome, you either win the event and can go on progressing within the game, or you are invited to make a new character to start a new game.</p><br>
+        <hr id="rules">
+    <h4>Progression</h4>
+        <p>Once you have passed 3 events, an elevator cutscene takes place where you are granted 2 new points to increase the skill(s) of your choice. You can then move on to the next series of 3 brand new events.</p><br>
+        <hr id="rules">
+    <h4>Saves</h4>
+        <p>Each elevator cutscene acts as a checkpoint where your progress is saved. Likewise, your character is saved right after you finish making it.</p><br>
+        <hr id="rules">
+    <h4>New items</h4>
+        <p>You receive a random item for winning the last event of a floor. This item can have either a bonus or malus on any or several of your character’s skills.</p><br>
+        <hr id="rules">
+    <h4>Game over</h4>
+        <p>The player loses if they lose against an event.</p><br>
+        <hr id="rules">
+    <h4>Victory</h4>
+    <p>Once you reach the fourth floor, you win.</p></div>
+</div>
+{% endblock %}
